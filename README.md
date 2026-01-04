@@ -1,4 +1,4 @@
-# 🎯 Yazılım Dilleri Radar
+# Yazılım Dilleri Radar
 
 Programlama dillerini interaktif radar grafikleriyle keşfedin, karşılaştırın ve analiz edin.
 
@@ -7,22 +7,22 @@ Programlama dillerini interaktif radar grafikleriyle keşfedin, karşılaştır�
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwindcss)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-## 📸 Ekran Görüntüsü
+## Ekran Görüntüsü
 
 <p align="center">
   <img src="screenshot.png" alt="Yazılım Dilleri Radar" width="800">
 </p>
 
-## ✨ Özellikler
+## Özellikler
 
-- 🔍 **58+ Programlama Dili** - Assembly'den Mojo'ya, COBOL'dan Rust'a
-- 📊 **Radar Grafikleri** - Her dilin 6 metrikte görsel analizi
-- ⚖️ **Karşılaştırma** - 3 dile kadar yan yana kıyaslama
-- 🔎 **Arama & Filtreleme** - İsme göre ara, metriğe göre sırala
-- 🌙 **Koyu Tema** - Göz yormayan modern tasarım
-- 📱 **Responsive** - Mobil ve masaüstü uyumlu
+- **58+ Programlama Dili** - Assembly'den Mojo'ya, COBOL'dan Rust'a
+- **Radar Grafikleri** - Her dilin 6 metrikte görsel analizi
+- **Karşılaştırma** - 3 dile kadar yan yana kıyaslama
+- **Arama & Filtreleme** - İsme göre ara, metriğe göre sırala
+- **Koyu Tema** - Göz yormayan modern tasarım
+- **Responsive** - Mobil ve masaüstü uyumlu
 
-## 📈 Değerlendirme Metrikleri
+## Değerlendirme Metrikleri
 
 | Metrik | Açıklama |
 |--------|----------|
@@ -33,7 +33,7 @@ Programlama dillerini interaktif radar grafikleriyle keşfedin, karşılaştır�
 | **Geliştirme Hızı** | Prototipleme ve kodlama hızı |
 | **Kariyer** | İş piyasasındaki talep |
 
-## 🚀 Kurulum
+## Kurulum
 
 ```bash
 # Repo'yu klonla
@@ -49,7 +49,7 @@ npm run dev
 
 Tarayıcıda `http://localhost:5173` adresini aç.
 
-## 📦 Build
+## Build
 
 ```bash
 # Üretim için build al
@@ -67,7 +67,7 @@ npm run preview
 - **Recharts** - Radar grafikleri
 - **Lucide React** - İkonlar
 
-## 📁 Proje Yapısı
+## Proje Yapısı
 
 ```
 language-radar/
@@ -82,7 +82,7 @@ language-radar/
 └── README.md
 ```
 
-## 🎮 Kullanım
+## Kullanım
 
 1. **Keşfet**: Dil kartlarındaki radar grafiklerini incele
 2. **Ara**: Üst kısımdaki arama kutusunu kullan
@@ -90,7 +90,7 @@ language-radar/
 4. **Karşılaştır**: "Kıyasla" butonlarıyla 3'e kadar dil seç
 5. **Analiz Et**: Karşılaştırma panelinde detaylı inceleme yap
 
-## 🌍 Desteklenen Diller
+## Desteklenen Diller
 
 <details>
 <summary>58 Programlama Dili (Tıkla ve gör)</summary>
@@ -136,7 +136,7 @@ Scratch
 
 </details>
 
-## 🤝 Katkıda Bulunma
+## Katkıda Bulunma
 
 1. Fork'la
 2. Feature branch oluştur (`git checkout -b feature/yeni-dil`)
@@ -167,11 +167,11 @@ Scratch
 }
 ```
 
-## 📄 Lisans
+## Lisans
 
 Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-## 🙏 Teşekkürler
+## Teşekkürler
 
 - [Recharts](https://recharts.org/) - Harika grafik kütüphanesi
 - [Lucide](https://lucide.dev/) - Güzel ikonlar
@@ -180,5 +180,5 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 ---
 
 <p align="center">
-  ⭐ Beğendiysen yıldız vermeyi unutma!
+ Beğendiysen yıldız vermeyi unutma!
 </p>
