@@ -2,12 +2,100 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1'/%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='url(%23g)' stroke-width='8'/%3E%3Cpolygon points='50,20 75,65 50,55 25,65' fill='url(%23g)'/%3E%3C/svg%3E" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yazılım Dilleri Radar</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Yazılım Dilleri Radar | 58+ Programlama Dili Analizi</title>
+    <meta name="description" content="Programlama dillerini interaktif radar grafikleriyle keşfedin. 58+ dil, performans metrikleri, kariyer analizi ve karşılaştırma araçları." />
+    <meta name="keywords" content="programlama dilleri, yazılım, radar grafik, Python, JavaScript, C++, Rust, karşılaştırma, analiz" />
+    <meta name="author" content="Language Radar" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Yazılım Dilleri Radar | 58+ Programlama Dili Analizi" />
+    <meta property="og:description" content="Programlama dillerini interaktif radar grafikleriyle keşfedin, karşılaştırın ve analiz edin." />
+    <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yazılım Dilleri Radar" />
+    <meta name="twitter:description" content="58+ programlama dilini interaktif radar grafikleriyle analiz edin." />
+    
+    <!-- Theme & PWA -->
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <style>
+      /* Critical CSS for faster LCP */
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: #0f172a;
+        margin: 0;
+      }
+      
+      /* Loading spinner */
+      #loading {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      
+      .spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(99, 102, 241, 0.2);
+        border-top-color: #6366f1;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      .loading-text {
+        margin-top: 20px;
+        color: #94a3b8;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
+    <!-- Loading Screen -->
+    <div id="loading">
+      <div class="spinner"></div>
+      <div class="loading-text">Yükleniyor...</div>
+    </div>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <script>
+      // Hide loading screen when app is ready
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loading = document.getElementById('loading');
+          if (loading) {
+            loading.style.opacity = '0';
+            setTimeout(() => loading.remove(), 500);
+          }
+        }, 300);
+      });
+    </script>
   </body>
 </html>

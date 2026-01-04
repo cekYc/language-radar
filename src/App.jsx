@@ -1,6 +1,117 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Legend, Tooltip } from 'recharts';
-import { Search, Check, X, Code2, Scale, Zap, BookOpen, Share2, Layers, ArrowDownUp } from 'lucide-react';
+import { Search, Check, X, Code2, Scale, Zap, BookOpen, Share2, Layers, ArrowDownUp, Sparkles, TrendingUp, Award, Users, Github, Heart, ChevronUp, Filter, BarChart3, Target } from 'lucide-react';
+
+// === Animated Counter Component ===
+const AnimatedCounter = ({ target, duration = 2000, suffix = '' }) => {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const startTime = Date.now();
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(target * easeOut));
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          animate();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (elementRef.current) observer.observe(elementRef.current);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return <span ref={elementRef} className="stat-number">{count}{suffix}</span>;
+};
+
+// === Stats Section Component ===
+const StatsSection = ({ languages }) => {
+  const stats = useMemo(() => {
+    const avgPerformance = languages.reduce((sum, l) => sum + l.metrics.find(m => m.subject === 'Performans').A, 0) / languages.length;
+    const avgCareer = languages.reduce((sum, l) => sum + l.metrics.find(m => m.subject === 'Kariyer').A, 0) / languages.length;
+    const topPerformer = languages.reduce((best, l) => {
+      const perf = l.metrics.find(m => m.subject === 'Performans').A;
+      return perf > (best.metrics.find(m => m.subject === 'Performans')?.A || 0) ? l : best;
+    });
+    const easiestToLearn = languages.reduce((best, l) => {
+      const learn = l.metrics.find(m => m.subject === 'Öğrenme').A;
+      return learn > (best.metrics.find(m => m.subject === 'Öğrenme')?.A || 0) ? l : best;
+    });
+    return { avgPerformance, avgCareer, topPerformer, easiestToLearn };
+  }, [languages]);
+
+  return (
+    <div className="max-w-7xl mx-auto mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="glass rounded-2xl p-6 text-center card-hover">
+          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+            <Code2 className="text-white" size={24} />
+          </div>
+          <div className="text-3xl font-bold text-white mb-1">
+            <AnimatedCounter target={languages.length} suffix="+" />
+          </div>
+          <div className="text-slate-400 text-sm">Programlama Dili</div>
+        </div>
+        
+        <div className="glass rounded-2xl p-6 text-center card-hover">
+          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+            <BarChart3 className="text-white" size={24} />
+          </div>
+          <div className="text-3xl font-bold text-white mb-1">
+            <AnimatedCounter target={6} />
+          </div>
+          <div className="text-slate-400 text-sm">Metrik Kategorisi</div>
+        </div>
+        
+        <div className="glass rounded-2xl p-6 text-center card-hover">
+          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+            <Award className="text-white" size={24} />
+          </div>
+          <div className="text-lg font-bold text-amber-400 mb-1">{stats.topPerformer.name}</div>
+          <div className="text-slate-400 text-sm">En Performanslı</div>
+        </div>
+        
+        <div className="glass rounded-2xl p-6 text-center card-hover">
+          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+            <Target className="text-white" size={24} />
+          </div>
+          <div className="text-lg font-bold text-cyan-400 mb-1">{stats.easiestToLearn.name}</div>
+          <div className="text-slate-400 text-sm">En Kolay Öğrenme</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// === Scroll to Top Button ===
+const ScrollToTop = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => setIsVisible(window.scrollY > 500);
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  return isVisible ? (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className="fixed bottom-8 right-8 p-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-50 animate-scale-in"
+      aria-label="Yukarı çık"
+    >
+      <ChevronUp size={24} />
+    </button>
+  ) : null;
+};
 
 // --- Veri Seti ---
 const languagesData = [
@@ -1065,224 +1176,375 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans p-4 md:p-8">
-      {/* Header */}
-      <header className="mb-8 text-center max-w-4xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-indigo-400 mb-2 flex items-center justify-center gap-3">
-          <Code2 size={40} />
-          Yazılım Dilleri Radar (Koyu Mod)
-        </h1>
-        <p className="text-slate-400 text-lg">
-          Dillerin felsefelerini keşfedin, metriklerini radar grafiğinde analiz edin ve yan yana karşılaştırın.
-        </p>
-      </header>
+    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans relative overflow-x-hidden">
+      {/* Background Effects */}
+      <div className="fixed inset-0 gradient-mesh pointer-events-none" />
+      <div className="fixed top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="relative z-10 p-4 md:p-8">
+        {/* Header */}
+        <header className="mb-12 text-center max-w-4xl mx-auto animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
+            <Sparkles size={16} className="text-yellow-400" />
+            <span className="text-sm text-slate-300">58+ Programlama Dili Analizi</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+            Yazılım Dilleri Radar
+          </h1>
+          
+          <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Dillerin felsefelerini keşfedin, metriklerini radar grafiğinde analiz edin 
+            ve yan yana karşılaştırın.
+          </p>
+          
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="flex items-center gap-2 text-sm text-slate-500">
+              <TrendingUp size={16} className="text-green-400" />
+              <span>Sürekli Güncelleniyor</span>
+            </div>
+            <div className="w-1 h-1 bg-slate-600 rounded-full" />
+            <div className="flex items-center gap-2 text-sm text-slate-500">
+              <Users size={16} className="text-blue-400" />
+              <span>Türkçe Destekli</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Stats Section */}
+        <StatsSection languages={languagesData} />
 
       {/* Arama ve Kontroller */}
-      <div className="max-w-6xl mx-auto mb-8 sticky top-4 z-30">
-        <div className="bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto mb-8 sticky top-4 z-30">
+          <div className="glass rounded-2xl p-4 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
           
-          {/* Arama */}
-          <div className="relative w-full md:w-1/3">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
-            <input
-              type="text"
-              placeholder="Dil ara (örn: C, Assembly)..."
-              className="w-full pl-10 pr-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
+            {/* Arama */}
+            <div className="relative w-full md:w-1/3 group">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-400 transition-colors" size={20} />
+              <input
+                type="text"
+                placeholder="Dil ara (örn: Python, Rust)..."
+                className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-800/80 border border-slate-600/50 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all duration-300"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
 
-          {/* Sıralama */}
-          <div className="relative w-full md:w-1/3">
-            <ArrowDownUp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition appearance-none cursor-pointer"
-            >
-              {sortOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
+            {/* Sıralama */}
+            <div className="relative w-full md:w-1/3 group">
+              <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-400 transition-colors" size={20} />
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-800/80 border border-slate-600/50 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all duration-300 appearance-none cursor-pointer"
+              >
+                {sortOptions.map(opt => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
+                ))}
+              </select>
+            </div>
           
-          {/* Seçim Bilgisi */}
-          <div className="flex items-center gap-2 text-sm text-slate-400 w-full md:w-auto justify-end">
-             <Scale size={18} />
-             <span>{selectedIds.length} dil seçildi</span>
-             {selectedIds.length > 0 && (
-               <button 
-                onClick={() => setSelectedIds([])}
-                className="ml-2 text-red-400 hover:text-red-300 underline text-xs font-semibold"
-               >
-                 Temizle
-               </button>
-             )}
+            {/* Seçim Bilgisi */}
+            <div className="flex items-center gap-3 w-full md:w-auto justify-end">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800/50">
+                <Scale size={18} className="text-indigo-400" />
+                <span className="text-sm font-medium">
+                  <span className="text-indigo-400">{selectedIds.length}</span>
+                  <span className="text-slate-400"> / 3 seçili</span>
+                </span>
+              </div>
+              {selectedIds.length > 0 && (
+                <button 
+                  onClick={() => setSelectedIds([])}
+                  className="px-4 py-2 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors text-sm font-medium"
+                >
+                  Temizle
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
       {/* Karşılaştırma Alanı (Conditional Render) */}
-      {selectedLanguages.length > 0 && (
-        <div className="max-w-7xl mx-auto mb-12 animate-in fade-in slide-in-from-top-4 duration-500">
-          <div className="bg-slate-800 rounded-2xl shadow-xl border border-slate-700 overflow-hidden">
-            <div className="bg-slate-700 p-4 border-b border-slate-600 flex justify-between items-center">
-              <h2 className="text-xl font-bold text-indigo-300 flex items-center gap-2">
-                <Layers size={24} />
-                Karşılaştırma Analizi
-              </h2>
-              <button onClick={() => setSelectedIds([])} className="p-2 hover:bg-slate-600 rounded-full text-slate-300 transition">
-                <X size={20} />
-              </button>
-            </div>
+        {selectedLanguages.length > 0 && (
+          <div className="max-w-7xl mx-auto mb-12 animate-scale-in">
+            <div className="glass-dark rounded-3xl shadow-2xl overflow-hidden border border-indigo-500/20">
+              <div className="bg-gradient-to-r from-indigo-600/20 to-purple-600/20 p-5 border-b border-slate-700/50 flex justify-between items-center">
+                <h2 className="text-xl font-bold text-white flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-indigo-500/20">
+                    <Layers size={22} className="text-indigo-400" />
+                  </div>
+                  Karşılaştırma Analizi
+                  <span className="badge badge-primary ml-2">{selectedLanguages.length} Dil</span>
+                </h2>
+                <button 
+                  onClick={() => setSelectedIds([])} 
+                  className="p-2.5 hover:bg-slate-700/50 rounded-xl text-slate-400 hover:text-white transition-all duration-300"
+                >
+                  <X size={20} />
+                </button>
+              </div>
             
-            <div className="flex flex-col lg:flex-row">
-              {/* Ortak Radar Grafiği */}
-              <div className="w-full lg:w-1/3 p-6 bg-slate-800 flex items-center justify-center border-b lg:border-b-0 lg:border-r border-slate-700">
-                <div className="w-full h-80">
-                  <ComparisonRadar languages={selectedLanguages} />
+              <div className="flex flex-col lg:flex-row">
+                {/* Ortak Radar Grafiği */}
+                <div className="w-full lg:w-1/3 p-6 flex items-center justify-center border-b lg:border-b-0 lg:border-r border-slate-700/50">
+                  <div className="w-full h-80">
+                    <ComparisonRadar languages={selectedLanguages} />
+                  </div>
+                </div>
+
+                {/* Yan Yana Detaylar */}
+                <div className="w-full lg:w-2/3 p-6 overflow-x-auto">
+                  <div className="flex gap-6 min-w-max">
+                    {selectedLanguages.map((lang, index) => (
+                      <div 
+                        key={lang.id} 
+                        className="w-72 flex-shrink-0 flex flex-col animate-slide-in-right"
+                        style={{ animationDelay: `${index * 100}ms` }}
+                      >
+                        <div className="flex items-center gap-3 mb-4 pb-3 border-b-2" style={{ borderColor: lang.color }}>
+                          <div className="w-4 h-4 rounded-full" style={{ backgroundColor: lang.color }} />
+                          <h3 className="text-2xl font-bold" style={{ color: lang.color }}>{lang.name}</h3>
+                        </div>
+                      
+                        <div className="space-y-4 text-sm">
+                          <div className="p-3 rounded-xl bg-slate-800/50">
+                            <p className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wide">Felsefe</p>
+                            <p className="italic text-slate-200">"{lang.philosophy}"</p>
+                          </div>
+
+                          <div>
+                            <p className="font-semibold text-green-400 flex items-center gap-2 mb-2">
+                              <Zap size={14} className="fill-current"/> Artılar
+                            </p>
+                            <ul className="space-y-1.5">
+                              {lang.pros.map((p, i) => (
+                                <li key={i} className="flex items-start gap-2 text-slate-300">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0" />
+                                  {p}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div>
+                            <p className="font-semibold text-red-400 flex items-center gap-2 mb-2">
+                              <BookOpen size={14}/> Eksiler
+                            </p>
+                            <ul className="space-y-1.5">
+                              {lang.cons.map((c, i) => (
+                                <li key={i} className="flex items-start gap-2 text-slate-300">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
+                                  {c}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
 
-              {/* Yan Yana Detaylar */}
-              <div className="w-full lg:w-2/3 p-6 overflow-x-auto">
-                <div className="flex gap-6 min-w-max">
-                  {selectedLanguages.map(lang => (
-                    <div key={lang.id} className="w-72 flex-shrink-0 flex flex-col">
-                      <div className="flex items-center gap-2 mb-4 pb-2 border-b-2" style={{ borderColor: lang.color }}>
-                        <h3 className="text-2xl font-bold" style={{ color: lang.color }}>{lang.name}</h3>
-                      </div>
-                      
-                      <div className="space-y-4 text-sm">
-                        <div>
-                          <p className="font-semibold text-slate-400 mb-1">Felsefe</p>
-                          <p className="italic text-slate-200">"{lang.philosophy}"</p>
-                        </div>
-
-                        <div>
-                          <p className="font-semibold text-green-400 flex items-center gap-1"><Zap size={14}/> Artılar</p>
-                          <ul className="list-disc list-inside text-slate-300 space-y-1 mt-1">
-                            {lang.pros.map((p, i) => <li key={i}>{p}</li>)}
-                          </ul>
-                        </div>
-
-                        <div>
-                          <p className="font-semibold text-red-400 flex items-center gap-1"><BookOpen size={14}/> Eksiler</p>
-                          <ul className="list-disc list-inside text-slate-300 space-y-1 mt-1">
-                            {lang.cons.map((c, i) => <li key={i}>{c}</li>)}
-                          </ul>
+      {/* Grid Listesi */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {processedLanguages.map((lang, index) => {
+            const isSelected = selectedIds.includes(lang.id);
+            const perfScore = lang.metrics.find(m=>m.subject==='Performans').A;
+            const learnScore = lang.metrics.find(m=>m.subject==='Öğrenme').A;
+            const careerScore = lang.metrics.find(m=>m.subject==='Kariyer').A;
+          
+            return (
+              <div 
+                key={lang.id}
+                className={`group glass rounded-2xl shadow-lg overflow-hidden flex flex-col card-hover animate-fade-in-up border-2 transition-all duration-300 ${
+                  isSelected 
+                    ? 'border-indigo-500 ring-2 ring-indigo-500/30' 
+                    : 'border-transparent hover:border-slate-600'
+                }`}
+                style={{ animationDelay: `${(index % 9) * 50}ms` }}
+              >
+                {/* Kart Üstü */}
+                <div className="p-5 pb-3">
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex items-center gap-3">
+                      <div 
+                        className="w-3 h-10 rounded-full"
+                        style={{ backgroundColor: lang.color }}
+                      />
+                      <div>
+                        <h2 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                          {lang.name}
+                        </h2>
+                        <div className="flex gap-2 mt-1">
+                          {perfScore >= 8 && <span className="badge badge-success">Hızlı</span>}
+                          {learnScore >= 8 && <span className="badge badge-primary">Kolay</span>}
+                          {careerScore >= 8 && <span className="badge badge-warning">Talep</span>}
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Grid Listesi */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {processedLanguages.map(lang => {
-          const isSelected = selectedIds.includes(lang.id);
-          
-          return (
-            <div 
-              key={lang.id} 
-              className={`bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 overflow-hidden flex flex-col ${isSelected ? 'border-indigo-500 ring-2 ring-indigo-900' : 'border-slate-700'}`}
-            >
-              {/* Kart Üstü */}
-              <div className="p-6 pb-2">
-                <div className="flex justify-between items-start mb-2">
-                  <h2 className="text-2xl font-bold text-slate-100">{lang.name}</h2>
-                  <button
-                    onClick={() => toggleSelection(lang.id)}
-                    className={`p-2 rounded-full transition-colors flex items-center gap-2 text-sm font-medium ${
-                      isSelected 
-                        ? 'bg-indigo-600 text-white shadow-md' 
-                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-                    }`}
-                  >
-                    {isSelected ? <Check size={16} /> : <Share2 size={16} />}
-                    {isSelected ? 'Seçildi' : 'Kıyasla'}
-                  </button>
-                </div>
-                <p className="text-slate-400 text-sm min-h-[40px] italic">
-                  "{lang.philosophy}"
-                </p>
-              </div>
-
-              {/* Radar Grafiği */}
-              <div className="h-64 w-full bg-slate-800/50 relative">
-                <RadarChartComponent data={lang.metrics} color={lang.color} />
-              </div>
-
-              {/* Detaylar (Artı/Eksi) */}
-              <div className="p-6 bg-slate-800 flex-grow flex flex-col gap-4 border-t border-slate-700">
-                
-                {/* Metrik Özetleri (Bar şeklinde küçük görselleştirme) */}
-                <div className="grid grid-cols-2 gap-2 text-xs text-slate-500 mb-2">
-                   <div className="flex justify-between">
-                     <span>Performans:</span>
-                     <span className="font-bold text-slate-300">{lang.metrics.find(m=>m.subject==='Performans').A}/10</span>
-                   </div>
-                   <div className="flex justify-between">
-                     <span>Öğrenme:</span>
-                     <span className="font-bold text-slate-300">{lang.metrics.find(m=>m.subject==='Öğrenme').A}/10</span>
-                   </div>
-                </div>
-
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="text-sm font-bold text-green-400 mb-1 flex items-center gap-1">
-                      <Zap size={14} className="fill-current" /> Güçlü Yönler
-                    </h4>
-                    <ul className="text-sm text-slate-300 space-y-1">
-                      {lang.pros.slice(0, 2).map((p, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-green-500 mt-1">•</span>
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
+                    <button
+                      onClick={() => toggleSelection(lang.id)}
+                      className={`p-2.5 rounded-xl transition-all duration-300 flex items-center gap-2 text-sm font-medium ${
+                        isSelected 
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25' 
+                          : 'bg-slate-700/50 text-slate-300 hover:bg-slate-600 hover:scale-105'
+                      }`}
+                    >
+                      {isSelected ? <Check size={16} /> : <Share2 size={16} />}
+                      <span className="hidden sm:inline">{isSelected ? 'Seçili' : 'Kıyasla'}</span>
+                    </button>
                   </div>
+                  <p className="text-slate-400 text-sm min-h-[40px] italic leading-relaxed">
+                    "{lang.philosophy}"
+                  </p>
+                </div>
+
+                {/* Radar Grafiği */}
+                <div className="h-56 w-full bg-gradient-to-b from-transparent to-slate-800/30 relative">
+                  <RadarChartComponent data={lang.metrics} color={lang.color} />
+                </div>
+
+                {/* Metrik Özetleri */}
+                <div className="px-5 py-3 bg-slate-800/30 border-t border-slate-700/50">
+                  <div className="grid grid-cols-3 gap-3 text-center">
+                    <div>
+                      <div className="text-xs text-slate-500 mb-1">Performans</div>
+                      <div className="flex items-center justify-center gap-1">
+                        <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full rounded-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
+                            style={{ width: `${perfScore * 10}%` }}
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-slate-300 w-6">{perfScore}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-500 mb-1">Öğrenme</div>
+                      <div className="flex items-center justify-center gap-1">
+                        <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500"
+                            style={{ width: `${learnScore * 10}%` }}
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-slate-300 w-6">{learnScore}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-500 mb-1">Kariyer</div>
+                      <div className="flex items-center justify-center gap-1">
+                        <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full rounded-full bg-gradient-to-r from-amber-500 to-orange-400 transition-all duration-500"
+                            style={{ width: `${careerScore * 10}%` }}
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-slate-300 w-6">{careerScore}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Detaylar (Artı/Eksi) */}
+                <div className="p-5 flex-grow flex flex-col gap-4 border-t border-slate-700/50">
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-bold text-green-400 mb-2 flex items-center gap-2">
+                        <Zap size={14} className="fill-current" /> Güçlü Yönler
+                      </h4>
+                      <ul className="text-sm text-slate-300 space-y-1.5">
+                        {lang.pros.slice(0, 2).map((p, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0" />
+                            <span className="line-clamp-2">{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   
-                  <div>
-                    <h4 className="text-sm font-bold text-red-400 mb-1 flex items-center gap-1">
-                      <BookOpen size={14} /> Zayıf Yönler
-                    </h4>
-                    <ul className="text-sm text-slate-300 space-y-1">
-                      {lang.cons.slice(0, 2).map((c, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-red-500 mt-1">•</span>
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
+                    <div>
+                      <h4 className="text-sm font-bold text-red-400 mb-2 flex items-center gap-2">
+                        <BookOpen size={14} /> Zayıf Yönler
+                      </h4>
+                      <ul className="text-sm text-slate-300 space-y-1.5">
+                        {lang.cons.slice(0, 2).map((c, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
+                            <span className="line-clamp-2">{c}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
       
       {processedLanguages.length === 0 && (
-        <div className="text-center py-20">
-          <p className="text-slate-500 text-xl">Aradığınız kriterlere uygun bir dil bulunamadı.</p>
-          <button 
-            onClick={() => {
-              setSearchTerm('');
-              setSortBy('default');
-            }}
-            className="mt-4 text-indigo-400 font-medium hover:underline"
-          >
-            Filtreleri temizle
-          </button>
-        </div>
-      )}
+          <div className="text-center py-20 animate-fade-in-up">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-slate-800 flex items-center justify-center">
+              <Search size={32} className="text-slate-600" />
+            </div>
+            <p className="text-slate-500 text-xl mb-2">Aradığınız kriterlere uygun bir dil bulunamadı.</p>
+            <p className="text-slate-600 text-sm mb-6">Farklı bir arama terimi veya filtre deneyin.</p>
+            <button 
+              onClick={() => {
+                setSearchTerm('');
+                setSortBy('default');
+              }}
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300"
+            >
+              Filtreleri Temizle
+            </button>
+          </div>
+        )}
+
+        {/* Footer */}
+        <footer className="max-w-7xl mx-auto mt-20 pt-12 border-t border-slate-800">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                <Code2 size={20} className="text-white" />
+              </div>
+              <div>
+                <h3 className="font-bold text-white">Yazılım Dilleri Radar</h3>
+                <p className="text-xs text-slate-500">58+ dil, 6 metrik, sınırsız analiz</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-6">
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+              >
+                <Github size={20} />
+                <span className="text-sm">GitHub</span>
+              </a>
+            </div>
+          </div>
+          
+          <div className="text-center py-6 border-t border-slate-800/50">
+            <p className="text-sm text-slate-500 flex items-center justify-center gap-2">
+              <Heart size={14} className="text-red-500 fill-current" />
+              ile yapıldı • 2024-2026
+            </p>
+          </div>
+        </footer>
+      </div>
+      
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 }
