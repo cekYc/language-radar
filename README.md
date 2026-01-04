@@ -37,7 +37,7 @@ Programlama dillerini interaktif radar grafikleriyle keşfedin, karşılaştır�
 
 ```bash
 # Repo'yu klonla
-git clone https://github.com/KULLANICI_ADI/language-radar.git
+git clone https://github.com/cekYc/language-radar.git
 cd language-radar
 
 # Bağımlılıkları yükle
