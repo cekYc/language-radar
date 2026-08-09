@@ -62,6 +62,57 @@ const careerBands = [
   'henüz anlamlı ve tekrarlanabilir iş talebi oluşturmuyor',
 ] as const;
 
+const englishBands = {
+  performance: [
+    'offers near-native speed and strong resource control',
+    'delivers high, mostly predictable speed through optimized compilation or JIT',
+    'uses a mature runtime with balanced but measurable overhead',
+    'shows noticeable runtime cost in compute-intensive workloads',
+    'has clear performance limits outside its specialized domain',
+    'does not target production runtime performance in its educational or experimental model',
+  ],
+  learning: [
+    'provides a highly accessible onboarding flow and core model',
+    'is learned quickly through a small and consistent core',
+    'has approachable fundamentals with moderate production-level complexity',
+    'introduces several advanced concepts early in the learning path',
+    'creates a steep learning curve through its type, memory, or runtime model',
+    'requires specialist concepts and tooling from the outset',
+  ],
+  ecosystem: [
+    'has a very broad, active, and production-proven package and tooling base',
+    'has a mature ecosystem covering most production needs',
+    'is well supported in its main domains but narrower at the edges',
+    'has core tools, though coverage and maintenance signals are uneven',
+    'depends on a niche community and limited package selection',
+    'has an experimental or very small package and tooling base',
+  ],
+  versatility: [
+    'is a first-class option across many production domains and platforms',
+    'is strong and portable across several major domains',
+    'is reliable in several domains but secondary on some targets',
+    'is strong in specific domains with limited general-purpose reach',
+    'is concentrated around one primary domain or platform',
+    'serves a very narrow or experimental use case',
+  ],
+  developmentSpeed: [
+    'provides a very short feedback loop and strong automation',
+    'combines productive tools, reasonable safety, and little boilerplate',
+    'has a capable workflow with some build or ceremony cost',
+    'is slowed by tooling, build time, or implementation detail',
+    'requires substantial manual work and long feedback cycles',
+    'still has a very limited production development workflow',
+  ],
+  career: [
+    'has very strong demand, broad role variety, and durable market signals',
+    'has strong demand across multiple employment areas',
+    'has a stable but more focused job market',
+    'offers niche opportunities with limited role and employer breadth',
+    'depends on a small number of specialist roles or volatile demand',
+    'has not yet formed meaningful and repeatable job demand',
+  ],
+} as const;
+
 function bandIndex(score: number): number {
   if (score >= 90) return 0;
   if (score >= 75) return 1;
@@ -104,6 +155,7 @@ function evidence(
   return {
     score,
     rationale: `${seed.name}, rubrikte ${descriptions[metric][index]}.`,
+    rationaleEn: `${seed.name} ${englishBands[metric][index]}.`,
     sources: [...metricSources[metric]],
     updatedAt: METHODOLOGY_UPDATED_AT,
     confidence: confidenceFor(seed, metric),
@@ -115,6 +167,7 @@ function careerEvidence(seed: TechnologySeed, score: number, turkey: boolean): S
   return {
     score,
     rationale: `${seed.name}, ${region} ${careerBands[bandIndex(score)]}.`,
+    rationaleEn: `${seed.name}, in the ${turkey ? 'Türkiye' : 'global'} market, ${englishBands.career[bandIndex(score)]}.`,
     sources: turkey
       ? [sources.techcareerTurkey, sources.kariyerNet, officialSource(seed.name, seed.officialUrl)]
       : [sources.stackOverflowTechnology, sources.githubOctoverse, officialSource(seed.name, seed.officialUrl)],

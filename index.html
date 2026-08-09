@@ -86,6 +86,14 @@
     <script type="module" src="/src/main.tsx"></script>
     
     <script>
+      const savedLocale = localStorage.getItem('language-radar-locale');
+      const initialLocale = savedLocale === 'tr' || savedLocale === 'en'
+        ? savedLocale
+        : (navigator.language.toLowerCase().startsWith('en') ? 'en' : 'tr');
+      document.documentElement.lang = initialLocale;
+      const loadingText = document.querySelector('.loading-text');
+      if (loadingText) loadingText.textContent = initialLocale === 'en' ? 'Loading...' : 'Yükleniyor...';
+
       // Hide loading screen when app is ready
       window.addEventListener('load', () => {
         setTimeout(() => {

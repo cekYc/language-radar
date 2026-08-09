@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import { AppFooter } from './components/AppFooter';
 import { AppHeader } from './components/AppHeader';
@@ -9,7 +9,8 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { StatsSection } from './components/StatsSection';
 import { TechnologyCard } from './components/TechnologyCard';
 import { technologies } from './data/technologies';
-import type { CareerRegion } from './types';
+import { t } from './i18n';
+import type { CareerRegion, Locale } from './types';
 import { getMetricEvidence } from './utils/metrics';
 
 export default function App() {
@@ -18,11 +19,31 @@ export default function App() {
   const [sortBy, setSortBy] = useState<SortKey>('default');
   const [category, setCategory] = useState<CategoryFilter>('all');
   const [careerRegion, setCareerRegion] = useState<CareerRegion>('turkey');
+  const [locale, setLocale] = useState<Locale>(() => {
+    const savedLocale = window.localStorage.getItem('language-radar-locale');
+    if (savedLocale === 'tr' || savedLocale === 'en') return savedLocale;
+    return window.navigator.language.toLocaleLowerCase().startsWith('en') ? 'en' : 'tr';
+  });
+  const copy = t(locale);
+
+  useEffect(() => {
+    window.localStorage.setItem('language-radar-locale', locale);
+    document.documentElement.lang = locale;
+    document.title = locale === 'tr'
+      ? 'Yazılım Dilleri Radar | 59 Teknoloji Analizi'
+      : 'Language Radar | 59 Technology Comparisons';
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description) {
+      description.content = locale === 'tr'
+        ? '59 programlama dili ve aracını kaynaklı 0–100 puanlar ve Türkiye/Global kariyer analiziyle karşılaştırın.'
+        : 'Compare 59 programming languages and tools using sourced 0–100 scores and Türkiye/Global career analysis.';
+    }
+  }, [locale]);
 
   const processedTechnologies = useMemo(() => {
-    const normalizedSearch = searchTerm.trim().toLocaleLowerCase('tr-TR');
+    const normalizedSearch = searchTerm.trim().toLocaleLowerCase(locale === 'tr' ? 'tr-TR' : 'en-US');
     const result = technologies.filter((technology) => {
-      const matchesSearch = technology.name.toLocaleLowerCase('tr-TR').includes(normalizedSearch);
+      const matchesSearch = technology.name.toLocaleLowerCase(locale === 'tr' ? 'tr-TR' : 'en-US').includes(normalizedSearch);
       const matchesCategory = category === 'all' || technology.category === category;
       return matchesSearch && matchesCategory;
     });
@@ -35,7 +56,7 @@ export default function App() {
     }
 
     return result;
-  }, [careerRegion, category, searchTerm, sortBy]);
+  }, [careerRegion, category, locale, searchTerm, sortBy]);
 
   const selectedTechnologies = useMemo(
     () => technologies.filter((technology) => selectedIds.includes(technology.id)),
@@ -46,7 +67,7 @@ export default function App() {
     setSelectedIds((current) => {
       if (current.includes(id)) return current.filter((item) => item !== id);
       if (current.length >= 3) {
-        window.alert('En fazla 3 teknolojiyi aynı anda karşılaştırabilirsiniz.');
+        window.alert(copy.maxComparison);
         return current;
       }
       return [...current, id];
@@ -66,15 +87,16 @@ export default function App() {
       <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 p-4 md:p-8">
-        <AppHeader technologyCount={technologies.length} />
-        <StatsSection technologies={technologies} />
-        <MethodologyPanel />
+        <AppHeader technologyCount={technologies.length} locale={locale} onLocaleChange={setLocale} />
+        <StatsSection technologies={technologies} locale={locale} />
+        <MethodologyPanel locale={locale} />
         <Controls
           searchTerm={searchTerm}
           sortBy={sortBy}
           category={category}
           careerRegion={careerRegion}
           selectedCount={selectedIds.length}
+          locale={locale}
           onSearchChange={setSearchTerm}
           onSortChange={setSortBy}
           onCategoryChange={setCategory}
@@ -85,6 +107,7 @@ export default function App() {
         <ComparisonPanel
           technologies={selectedTechnologies}
           careerRegion={careerRegion}
+          locale={locale}
           onClear={() => setSelectedIds([])}
         />
 
@@ -96,6 +119,7 @@ export default function App() {
               index={index}
               selected={selectedIds.includes(technology.id)}
               careerRegion={careerRegion}
+              locale={locale}
               onToggle={toggleSelection}
             />
           ))}
@@ -106,22 +130,22 @@ export default function App() {
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-slate-800 flex items-center justify-center">
               <Search size={32} className="text-slate-600" />
             </div>
-            <p className="text-slate-500 text-xl mb-2">Aradığınız kriterlere uygun bir teknoloji bulunamadı.</p>
-            <p className="text-slate-600 text-sm mb-6">Farklı bir arama terimi veya kategori deneyin.</p>
+            <p className="text-slate-500 text-xl mb-2">{copy.noResults}</p>
+            <p className="text-slate-600 text-sm mb-6">{copy.tryDifferent}</p>
             <button
               type="button"
               onClick={clearFilters}
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300"
             >
-              Filtreleri Temizle
+              {copy.clearFilters}
             </button>
           </div>
         )}
 
-        <AppFooter technologyCount={technologies.length} />
+        <AppFooter technologyCount={technologies.length} locale={locale} />
       </div>
 
-      <ScrollToTop />
+      <ScrollToTop locale={locale} />
     </div>
   );
 }

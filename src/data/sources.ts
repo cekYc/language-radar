@@ -57,7 +57,7 @@ export const sources = {
 export function officialSource(name: string, url: string): SourceReference {
   return {
     id: `official-${name.toLocaleLowerCase('en-US').replace(/[^a-z0-9]+/g, '-')}`,
-    title: `${name} resmi dokümantasyonu / standardı`,
+    title: `${name} official documentation / standard`,
     url,
     publisher: name,
     accessedAt: METHODOLOGY_UPDATED_AT,

@@ -1,13 +1,17 @@
 import { useMemo } from 'react';
 import { Award, BarChart3, Code2, Target } from 'lucide-react';
 import type { Technology } from '../types';
+import type { Locale } from '../types';
+import { t } from '../i18n';
 import { AnimatedCounter } from './AnimatedCounter';
 
 interface StatsSectionProps {
   technologies: Technology[];
+  locale: Locale;
 }
 
-export function StatsSection({ technologies }: StatsSectionProps) {
+export function StatsSection({ technologies, locale }: StatsSectionProps) {
+  const copy = t(locale);
   const stats = useMemo(() => {
     const topPerformer = technologies.reduce((best, technology) => (
       technology.metrics.performance.score > best.metrics.performance.score ? technology : best
@@ -28,7 +32,7 @@ export function StatsSection({ technologies }: StatsSectionProps) {
           <div className="text-3xl font-bold text-white mb-1">
             <AnimatedCounter target={technologies.length} />
           </div>
-          <div className="text-slate-400 text-sm">Teknoloji</div>
+          <div className="text-slate-400 text-sm">{copy.technology}</div>
         </div>
 
         <div className="glass rounded-2xl p-6 text-center card-hover">
@@ -38,7 +42,7 @@ export function StatsSection({ technologies }: StatsSectionProps) {
           <div className="text-3xl font-bold text-white mb-1">
             <AnimatedCounter target={6} />
           </div>
-          <div className="text-slate-400 text-sm">0–100 Metrik</div>
+          <div className="text-slate-400 text-sm">{copy.metric}</div>
         </div>
 
         <div className="glass rounded-2xl p-6 text-center card-hover">
@@ -46,7 +50,7 @@ export function StatsSection({ technologies }: StatsSectionProps) {
             <Award className="text-white" size={24} />
           </div>
           <div className="text-lg font-bold text-amber-400 mb-1">{stats.topPerformer.name}</div>
-          <div className="text-slate-400 text-sm">En Performanslı</div>
+          <div className="text-slate-400 text-sm">{copy.topPerformance}</div>
         </div>
 
         <div className="glass rounded-2xl p-6 text-center card-hover">
@@ -54,7 +58,7 @@ export function StatsSection({ technologies }: StatsSectionProps) {
             <Target className="text-white" size={24} />
           </div>
           <div className="text-lg font-bold text-cyan-400 mb-1">{stats.easiestToLearn.name}</div>
-          <div className="text-slate-400 text-sm">En Kolay Öğrenme</div>
+          <div className="text-slate-400 text-sm">{copy.easiestLearning}</div>
         </div>
       </div>
     </div>

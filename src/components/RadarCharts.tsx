@@ -9,23 +9,24 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
-import type { CareerRegion, ChartMetric, Technology } from '../types';
+import type { CareerRegion, ChartMetric, Locale, Technology } from '../types';
 import { toChartMetrics } from '../utils/metrics';
 
 interface TechnologyRadarProps {
   data: ChartMetric[];
   color: string;
   showAxis?: boolean;
+  locale: Locale;
 }
 
-export function TechnologyRadar({ data, color, showAxis = true }: TechnologyRadarProps) {
+export function TechnologyRadar({ data, color, locale, showAxis = true }: TechnologyRadarProps) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
         <PolarGrid gridType="polygon" stroke="#4b5563" strokeDasharray="3 3" />
         <PolarAngleAxis dataKey="subject" tick={{ fill: '#e2e8f0', fontSize: 10, fontWeight: 'bold' }} />
         {showAxis && <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />}
-        <Radar name="Puan" dataKey="score" stroke={color} strokeWidth={3} fill={color} fillOpacity={0.5} />
+        <Radar name={locale === 'tr' ? 'Puan' : 'Score'} dataKey="score" stroke={color} strokeWidth={3} fill={color} fillOpacity={0.5} />
         <Tooltip
           contentStyle={{ backgroundColor: '#1f2937', borderRadius: '8px', border: '1px solid #374151', color: '#fff' }}
           itemStyle={{ color, fontWeight: 'bold' }}
@@ -38,20 +39,21 @@ export function TechnologyRadar({ data, color, showAxis = true }: TechnologyRada
 interface ComparisonRadarProps {
   technologies: Technology[];
   careerRegion: CareerRegion;
+  locale: Locale;
 }
 
-export function ComparisonRadar({ technologies, careerRegion }: ComparisonRadarProps) {
+export function ComparisonRadar({ technologies, careerRegion, locale }: ComparisonRadarProps) {
   const combinedData = useMemo(() => {
     if (technologies.length === 0) return [];
-    return toChartMetrics(technologies[0]!, careerRegion).map(({ key, subject }) => {
+    return toChartMetrics(technologies[0]!, careerRegion, locale).map(({ key, subject }) => {
       const entry: Record<string, string | number> = { subject };
       technologies.forEach((technology) => {
-        entry[technology.name] = toChartMetrics(technology, careerRegion)
+        entry[technology.name] = toChartMetrics(technology, careerRegion, locale)
           .find((metric) => metric.key === key)?.score ?? 0;
       });
       return entry;
     });
-  }, [careerRegion, technologies]);
+  }, [careerRegion, locale, technologies]);
 
   return (
     <ResponsiveContainer width="100%" height={350}>

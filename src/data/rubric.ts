@@ -1,4 +1,4 @@
-import type { RubricDefinition } from '../types';
+import type { Locale, RubricDefinition } from '../types';
 
 export const SCORE_BANDS = [
   { min: 90, max: 100, label: 'Lider' },
@@ -72,3 +72,82 @@ export const metricRubrics: RubricDefinition[] = [
   },
 ];
 
+const englishScoreBands = [
+  { min: 90, max: 100, label: 'Leader' },
+  { min: 75, max: 89, label: 'Strong' },
+  { min: 60, max: 74, label: 'Capable' },
+  { min: 40, max: 59, label: 'Limited' },
+  { min: 20, max: 39, label: 'Weak' },
+  { min: 0, max: 19, label: 'Very weak / experimental' },
+] as const;
+
+const englishRubrics: RubricDefinition[] = [
+  {
+    key: 'performance',
+    label: 'Performance',
+    description: 'Runtime efficiency in typical production workloads, considering mature implementations rather than syntax alone.',
+    factors: [
+      { label: 'Runtime / throughput', weight: 45, description: 'Execution speed within comparable workload classes.' },
+      { label: 'Memory and startup cost', weight: 30, description: 'Memory footprint, startup time, and runtime overhead.' },
+      { label: 'Predictability', weight: 25, description: 'Latency, concurrency, and performance control.' },
+    ],
+  },
+  {
+    key: 'learning',
+    label: 'Learning',
+    description: 'A higher score means easier learning and a shorter path to initial productivity.',
+    factors: [
+      { label: 'Language surface', weight: 35, description: 'Simplicity of syntax and core concepts.' },
+      { label: 'Mental model', weight: 35, description: 'Complexity of types, memory, concurrency, and errors.' },
+      { label: 'Onboarding', weight: 30, description: 'Setup, official education, and beginner resources.' },
+    ],
+  },
+  {
+    key: 'ecosystem',
+    label: 'Ecosystem',
+    description: 'Libraries, tooling, documentation, and sustained community health are scored together.',
+    factors: [
+      { label: 'Packages and frameworks', weight: 40, description: 'Maintained solutions covering production needs.' },
+      { label: 'Tool maturity', weight: 30, description: 'IDE, testing, build, packaging, and observability.' },
+      { label: 'Community and maintenance', weight: 30, description: 'Active users, contributors, documentation, and releases.' },
+    ],
+  },
+  {
+    key: 'versatility',
+    label: 'Versatility',
+    description: 'Suitability across production domains and target platforms.',
+    factors: [
+      { label: 'Domain breadth', weight: 50, description: 'Web, systems, data, mobile, desktop, embedded, and scientific use.' },
+      { label: 'Platform reach', weight: 30, description: 'Operating system, device, and cloud targets.' },
+      { label: 'Interoperability', weight: 20, description: 'FFI, standards, and integration with other stacks.' },
+    ],
+  },
+  {
+    key: 'developmentSpeed',
+    label: 'Development Speed',
+    description: 'How quickly an idea becomes a reliable working change, not merely how few lines are written.',
+    factors: [
+      { label: 'Feedback loop', weight: 35, description: 'Build, run, hot reload, and test time.' },
+      { label: 'Expressiveness', weight: 30, description: 'Boilerplate and standard-library support.' },
+      { label: 'Prevention and automation', weight: 35, description: 'Types, tools, testing, and deployment support.' },
+    ],
+  },
+  {
+    key: 'career',
+    label: 'Career',
+    description: 'Türkiye and Global are scored separately using the same demand, breadth, and durability weights.',
+    factors: [
+      { label: 'Current demand', weight: 55, description: 'Job-listing and professional-usage signals.' },
+      { label: 'Role and sector breadth', weight: 25, description: 'Different jobs opened by the same skill.' },
+      { label: 'Direction and durability', weight: 20, description: 'Growth, installed base, and temporary-hype risk.' },
+    ],
+  },
+];
+
+export function getMetricRubrics(locale: Locale): RubricDefinition[] {
+  return locale === 'en' ? englishRubrics : metricRubrics;
+}
+
+export function getScoreBands(locale: Locale) {
+  return locale === 'en' ? englishScoreBands : SCORE_BANDS;
+}

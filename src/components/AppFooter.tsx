@@ -1,10 +1,14 @@
 import { Code2, GitFork, Heart } from 'lucide-react';
+import { t } from '../i18n';
+import type { Locale } from '../types';
 
 interface AppFooterProps {
   technologyCount: number;
+  locale: Locale;
 }
 
-export function AppFooter({ technologyCount }: AppFooterProps) {
+export function AppFooter({ technologyCount, locale }: AppFooterProps) {
+  const copy = t(locale);
   return (
     <footer className="max-w-7xl mx-auto mt-20 pt-12 border-t border-slate-800">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8">
@@ -13,8 +17,8 @@ export function AppFooter({ technologyCount }: AppFooterProps) {
             <Code2 size={20} className="text-white" />
           </div>
           <div>
-            <h2 className="font-bold text-white">Yazılım Dilleri Radar</h2>
-            <p className="text-xs text-slate-500">{technologyCount} teknoloji, 6 metrik, kaynaklı analiz</p>
+            <h2 className="font-bold text-white">{copy.title}</h2>
+            <p className="text-xs text-slate-500">{technologyCount} {copy.footerSummary}</p>
           </div>
         </div>
 
@@ -31,7 +35,7 @@ export function AppFooter({ technologyCount }: AppFooterProps) {
 
       <div className="text-center py-6 border-t border-slate-800/50">
         <p className="text-sm text-slate-500 flex items-center justify-center gap-2">
-          <Heart size={14} className="text-red-500 fill-current" /> ile yapıldı · 2024–2026
+          <Heart size={14} className="text-red-500 fill-current" /> {copy.madeBy}
         </p>
       </div>
     </footer>

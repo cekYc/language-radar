@@ -23,6 +23,7 @@ describe('v2 technology data', () => {
         expect(evidence.score).toBeLessThanOrEqual(100);
         expect(Number.isInteger(evidence.score)).toBe(true);
         expect(evidence.rationale.length).toBeGreaterThan(20);
+        expect(evidence.rationaleEn.length).toBeGreaterThan(20);
         expect(evidence.sources.length).toBeGreaterThan(0);
         expect(evidence.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
         expect(['high', 'medium', 'low']).toContain(evidence.confidence);
@@ -49,6 +50,14 @@ describe('v2 technology data', () => {
       const chart = toChartMetrics(technology, 'turkey');
       expect(chart).toHaveLength(6);
       expect(chart.every(({ fullMark }) => fullMark === 100)).toBe(true);
+      expect(toChartMetrics(technology, 'global', 'en').map(({ subject }) => subject)).toEqual([
+        'Performance',
+        'Learning',
+        'Ecosystem',
+        'Versatility',
+        'Development Speed',
+        'Career Global',
+      ]);
     });
   });
 
@@ -56,4 +65,3 @@ describe('v2 technology data', () => {
     expect(technologies.some(({ career }) => career.turkey.score !== career.global.score)).toBe(true);
   });
 });
-

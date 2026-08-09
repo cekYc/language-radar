@@ -1,15 +1,9 @@
 import { BookOpen, Check, Share2, Zap } from 'lucide-react';
-import type { CareerRegion, Technology } from '../types';
-import { toChartMetrics } from '../utils/metrics';
+import { t } from '../i18n';
+import type { CareerRegion, Locale, Technology } from '../types';
+import { getTechnologyCopy, metricLabels, toChartMetrics } from '../utils/metrics';
 import { TechnologyEvidence } from './TechnologyEvidence';
 import { TechnologyRadar } from './RadarCharts';
-
-const categoryLabels = {
-  programming: 'Programlama',
-  sql: 'SQL',
-  hdl: 'HDL',
-  visual: 'Görsel Araç',
-} as const;
 
 interface ScoreBarProps {
   label: string;
@@ -36,10 +30,19 @@ interface TechnologyCardProps {
   index: number;
   selected: boolean;
   careerRegion: CareerRegion;
+  locale: Locale;
   onToggle: (id: string) => void;
 }
 
-export function TechnologyCard({ technology, index, selected, careerRegion, onToggle }: TechnologyCardProps) {
+export function TechnologyCard({ technology, index, selected, careerRegion, locale, onToggle }: TechnologyCardProps) {
+  const copy = t(locale);
+  const content = getTechnologyCopy(technology, careerRegion, locale);
+  const categoryLabels = {
+    programming: copy.programming,
+    sql: 'SQL',
+    hdl: 'HDL',
+    visual: copy.visualTool,
+  } as const;
   const performance = technology.metrics.performance.score;
   const learning = technology.metrics.learning.score;
   const career = technology.career[careerRegion].score;
@@ -61,9 +64,9 @@ export function TechnologyCard({ technology, index, selected, careerRegion, onTo
               </h2>
               <div className="flex flex-wrap gap-2 mt-1">
                 <span className="badge bg-slate-700/60 text-slate-300">{categoryLabels[technology.category]}</span>
-                {performance >= 90 && <span className="badge badge-success">Hızlı</span>}
-                {learning >= 90 && <span className="badge badge-primary">Kolay</span>}
-                {career >= 85 && <span className="badge badge-warning">Talep</span>}
+                {performance >= 90 && <span className="badge badge-success">{copy.fast}</span>}
+                {learning >= 90 && <span className="badge badge-primary">{copy.easy}</span>}
+                {career >= 85 && <span className="badge badge-warning">{copy.demand}</span>}
               </div>
             </div>
           </div>
@@ -76,25 +79,25 @@ export function TechnologyCard({ technology, index, selected, careerRegion, onTo
                 : 'bg-slate-700/50 text-slate-300 hover:bg-slate-600 hover:scale-105'
             }`}
             aria-pressed={selected}
-            aria-label={`${technology.name} ${selected ? 'karşılaştırmadan çıkar' : 'karşılaştırmaya ekle'}`}
+            aria-label={`${technology.name} ${selected ? copy.removeFromComparison : copy.addToComparison}`}
           >
             {selected ? <Check size={16} /> : <Share2 size={16} />}
-            <span className="hidden sm:inline">{selected ? 'Seçili' : 'Kıyasla'}</span>
+            <span className="hidden sm:inline">{selected ? copy.selected : copy.compare}</span>
           </button>
         </div>
-        <p className="text-slate-400 text-sm min-h-[40px] italic leading-relaxed">“{technology.philosophy}”</p>
+        <p className="text-slate-400 text-sm min-h-[40px] italic leading-relaxed">“{content.philosophy}”</p>
       </div>
 
       <div className="h-56 w-full bg-gradient-to-b from-transparent to-slate-800/30 relative">
-        <TechnologyRadar data={toChartMetrics(technology, careerRegion)} color={technology.color} />
+        <TechnologyRadar data={toChartMetrics(technology, careerRegion, locale)} color={technology.color} locale={locale} />
       </div>
 
       <div className="px-5 py-3 bg-slate-800/30 border-t border-slate-700/50">
         <div className="grid grid-cols-3 gap-3 text-center">
-          <ScoreBar label="Performans" score={performance} gradient="bg-gradient-to-r from-green-500 to-emerald-400" />
-          <ScoreBar label="Öğrenme" score={learning} gradient="bg-gradient-to-r from-blue-500 to-cyan-400" />
+          <ScoreBar label={metricLabels[locale].performance} score={performance} gradient="bg-gradient-to-r from-green-500 to-emerald-400" />
+          <ScoreBar label={metricLabels[locale].learning} score={learning} gradient="bg-gradient-to-r from-blue-500 to-cyan-400" />
           <ScoreBar
-            label={`Kariyer ${careerRegion === 'turkey' ? 'TR' : 'Global'}`}
+            label={`${metricLabels[locale].career} ${careerRegion === 'turkey' ? 'TR' : 'Global'}`}
             score={career}
             gradient="bg-gradient-to-r from-amber-500 to-orange-400"
           />
@@ -105,10 +108,10 @@ export function TechnologyCard({ technology, index, selected, careerRegion, onTo
         <div className="space-y-4">
           <div>
             <h3 className="text-sm font-bold text-green-400 mb-2 flex items-center gap-2">
-              <Zap size={14} className="fill-current" /> Güçlü Yönler
+              <Zap size={14} className="fill-current" /> {copy.strengths}
             </h3>
             <ul className="text-sm text-slate-300 space-y-1.5">
-              {technology.pros.slice(0, 2).map((pro) => (
+              {content.pros.slice(0, 2).map((pro) => (
                 <li key={pro} className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0" />
                   <span className="line-clamp-2">{pro}</span>
@@ -119,10 +122,10 @@ export function TechnologyCard({ technology, index, selected, careerRegion, onTo
 
           <div>
             <h3 className="text-sm font-bold text-red-400 mb-2 flex items-center gap-2">
-              <BookOpen size={14} /> Zayıf Yönler
+              <BookOpen size={14} /> {copy.weaknesses}
             </h3>
             <ul className="text-sm text-slate-300 space-y-1.5">
-              {technology.cons.slice(0, 2).map((con) => (
+              {content.cons.slice(0, 2).map((con) => (
                 <li key={con} className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
                   <span className="line-clamp-2">{con}</span>
@@ -133,8 +136,7 @@ export function TechnologyCard({ technology, index, selected, careerRegion, onTo
         </div>
       </div>
 
-      <TechnologyEvidence technology={technology} />
+      <TechnologyEvidence technology={technology} locale={locale} />
     </article>
   );
 }
-

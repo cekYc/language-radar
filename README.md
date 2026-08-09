@@ -7,6 +7,7 @@ Programlama dillerini ve ilişkili teknolojileri kaynaklı 0–100 puanlarla inc
 - 59 teknoloji için aynı sabit rubrikle altı metrik
 - Her puanda kısa gerekçe, kaynak bağlantısı, güncelleme tarihi ve güven seviyesi
 - Türkiye ve Global için ayrı kariyer puanları
+- Kalıcı TR/EN seçiciyle Türkçe ve İngilizce arayüz, rubrik ve puan gerekçeleri
 - Programlama dilleri, SQL, HDL ve görsel araçlar için ayrı kategoriler
 - TypeScript veri modeli ve küçük, sorumluluğu belirli React bileşenleri
 - ESLint, Vitest veri bütünlüğü testleri, TypeScript kontrolü ve production build doğrulaması

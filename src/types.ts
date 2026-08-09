@@ -10,6 +10,7 @@ export const METRIC_KEYS = [
 export type MetricKey = (typeof METRIC_KEYS)[number];
 export type NonCareerMetricKey = Exclude<MetricKey, 'career'>;
 export type CareerRegion = 'turkey' | 'global';
+export type Locale = 'tr' | 'en';
 export type TechnologyCategory = 'programming' | 'sql' | 'hdl' | 'visual';
 export type ConfidenceLevel = 'high' | 'medium' | 'low';
 export type EvidenceTier = 'strong' | 'moderate' | 'limited';
@@ -27,6 +28,7 @@ export interface SourceReference {
 export interface ScoreEvidence {
   score: number;
   rationale: string;
+  rationaleEn: string;
   sources: SourceReference[];
   updatedAt: string;
   confidence: ConfidenceLevel;
@@ -86,4 +88,3 @@ export interface RubricDefinition {
   description: string;
   factors: RubricFactor[];
 }
-
