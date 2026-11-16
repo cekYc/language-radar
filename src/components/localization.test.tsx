@@ -6,14 +6,14 @@ import { MethodologyPanel } from './MethodologyPanel';
 
 describe('TR/EN localization', () => {
   it('renders the requested Turkish footer credit', () => {
-    const html = renderToStaticMarkup(<AppFooter technologyCount={59} locale="tr" />);
+    const html = renderToStaticMarkup(<AppFooter technologyCount={73} locale="tr" />);
     expect(html).toContain('Ceky tarafından yapıldı · 2026');
     expect(html).not.toContain('2024–2026');
   });
 
   it('renders the English header and methodology', () => {
     const header = renderToStaticMarkup(
-      <AppHeader technologyCount={59} locale="en" onLocaleChange={() => undefined} />,
+      <AppHeader technologyCount={73} locale="en" onLocaleChange={() => undefined} />,
     );
     const methodology = renderToStaticMarkup(<MethodologyPanel locale="en" />);
 

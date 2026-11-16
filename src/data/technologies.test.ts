@@ -5,8 +5,8 @@ import { METRIC_KEYS, type CareerRegion } from '../types';
 import { getMetricEvidence, toChartMetrics } from '../utils/metrics';
 
 describe('v2 technology data', () => {
-  it('keeps all 59 unique technologies and all requested categories', () => {
-    expect(technologies).toHaveLength(59);
+  it('keeps all 73 unique technologies and all requested categories', () => {
+    expect(technologies).toHaveLength(73);
     expect(new Set(technologies.map(({ id }) => id)).size).toBe(technologies.length);
     expect(new Set(technologies.map(({ category }) => category))).toEqual(
       new Set(['programming', 'sql', 'hdl', 'visual']),

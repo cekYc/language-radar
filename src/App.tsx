@@ -30,13 +30,13 @@ export default function App() {
     window.localStorage.setItem('language-radar-locale', locale);
     document.documentElement.lang = locale;
     document.title = locale === 'tr'
-      ? 'Yazılım Dilleri Radar | 59 Teknoloji Analizi'
-      : 'Language Radar | 59 Technology Comparisons';
+      ? 'Yazılım Dilleri Radar | 73 Teknoloji Analizi'
+      : 'Language Radar | 73 Technology Comparisons';
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description) {
       description.content = locale === 'tr'
-        ? '59 programlama dili ve aracını kaynaklı 0–100 puanlar ve Türkiye/Global kariyer analiziyle karşılaştırın.'
-        : 'Compare 59 programming languages and tools using sourced 0–100 scores and Türkiye/Global career analysis.';
+        ? '73 programlama dili ve aracını kaynaklı 0–100 puanlar ve Türkiye/Global kariyer analiziyle karşılaştırın.'
+        : 'Compare 73 programming languages and tools using sourced 0–100 scores and Türkiye/Global career analysis.';
     }
   }, [locale]);
 

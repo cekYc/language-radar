@@ -1,6 +1,6 @@
 import type { SourceReference } from '../types';
 
-export const METHODOLOGY_UPDATED_AT = '2026-08-09';
+export const METHODOLOGY_UPDATED_AT = '2026-11-16';
 
 export const sources = {
   benchmarksGame: {
@@ -12,26 +12,38 @@ export const sources = {
     kind: 'benchmark',
   },
   stackOverflowTechnology: {
-    id: 'stack-overflow-2025-technology',
-    title: '2025 Developer Survey — Technology',
-    url: 'https://survey.stackoverflow.co/2025/technology',
+    id: 'stack-overflow-2026-technology',
+    title: '2026 Developer Survey — Technology',
+    url: 'https://survey.stackoverflow.co/2026/technology',
     publisher: 'Stack Overflow',
+    publishedAt: '2026-10-06',
     accessedAt: METHODOLOGY_UPDATED_AT,
     kind: 'survey',
   },
-  stackOverflowDevelopers: {
-    id: 'stack-overflow-2025-developers',
-    title: '2025 Developer Survey — Developers',
-    url: 'https://survey.stackoverflow.co/2025/developers',
+  stackOverflowKnowledge: {
+    id: 'stack-overflow-2026-knowledge',
+    title: '2026 Developer Survey — Knowledge',
+    url: 'https://survey.stackoverflow.co/2026/knowledge',
     publisher: 'Stack Overflow',
+    publishedAt: '2026-10-06',
     accessedAt: METHODOLOGY_UPDATED_AT,
     kind: 'survey',
   },
   githubOctoverse: {
-    id: 'github-octoverse-2025',
-    title: 'Octoverse 2025: TypeScript to #1',
-    url: 'https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/',
+    id: 'github-octoverse-2026',
+    title: 'Octoverse 2026: Commits, pushes reach new highs as developers build with agents',
+    url: 'https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/',
     publisher: 'GitHub',
+    publishedAt: '2026-10-28',
+    accessedAt: METHODOLOGY_UPDATED_AT,
+    kind: 'survey',
+  },
+  tiobeIndex: {
+    id: 'tiobe-index-2026-11',
+    title: 'TIOBE Index — November 2026',
+    url: 'https://www.tiobe.com/tiobe-index/',
+    publisher: 'TIOBE',
+    publishedAt: '2026-11-01',
     accessedAt: METHODOLOGY_UPDATED_AT,
     kind: 'survey',
   },

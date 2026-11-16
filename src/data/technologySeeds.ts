@@ -24,9 +24,9 @@ export const technologySeeds = [
       "learning": 15,
       "ecosystem": 45,
       "versatility": 25,
-      "developmentSpeed": 15,
+      "developmentSpeed": 12,
       "careerGlobal": 45,
-      "careerTurkey": 38
+      "careerTurkey": 35
     }
   },
   {
@@ -49,11 +49,11 @@ export const technologySeeds = [
     "evidenceTier": "strong",
     "scores": {
       "performance": 96,
-      "learning": 40,
-      "ecosystem": 88,
-      "versatility": 75,
-      "developmentSpeed": 45,
-      "careerGlobal": 82,
+      "learning": 42,
+      "ecosystem": 86,
+      "versatility": 78,
+      "developmentSpeed": 42,
+      "careerGlobal": 78,
       "careerTurkey": 78
     }
   },
@@ -77,12 +77,12 @@ export const technologySeeds = [
     "evidenceTier": "strong",
     "scores": {
       "performance": 95,
-      "learning": 30,
-      "ecosystem": 93,
-      "versatility": 88,
-      "developmentSpeed": 43,
-      "careerGlobal": 86,
-      "careerTurkey": 80
+      "learning": 26,
+      "ecosystem": 90,
+      "versatility": 90,
+      "developmentSpeed": 40,
+      "careerGlobal": 84,
+      "careerTurkey": 82
     }
   },
   {
@@ -105,12 +105,12 @@ export const technologySeeds = [
     "evidenceTier": "strong",
     "scores": {
       "performance": 94,
-      "learning": 28,
-      "ecosystem": 83,
-      "versatility": 82,
-      "developmentSpeed": 55,
-      "careerGlobal": 74,
-      "careerTurkey": 55
+      "learning": 30,
+      "ecosystem": 87,
+      "versatility": 85,
+      "developmentSpeed": 60,
+      "careerGlobal": 78,
+      "careerTurkey": 42
     }
   },
   {
@@ -126,19 +126,19 @@ export const technologySeeds = [
     "cons": [
       "Derlenen dillere (C++/Rust) göre yavaş",
       "Mobil geliştirmede zayıf",
-      "Global Interpreter Lock (GIL) sınırlamaları"
+      "GIL'siz (free-threaded) derleme artık resmî, ancak paket ve araç desteği hâlâ olgunlaşıyor"
     ],
     "category": "programming",
     "officialUrl": "https://docs.python.org/3/",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 45,
+      "performance": 47,
       "learning": 92,
       "ecosystem": 99,
-      "versatility": 95,
-      "developmentSpeed": 96,
-      "careerGlobal": 95,
-      "careerTurkey": 88
+      "versatility": 93,
+      "developmentSpeed": 94,
+      "careerGlobal": 96,
+      "careerTurkey": 90
     }
   },
   {
@@ -163,9 +163,9 @@ export const technologySeeds = [
       "performance": 68,
       "learning": 75,
       "ecosystem": 100,
-      "versatility": 96,
-      "developmentSpeed": 92,
-      "careerGlobal": 92,
+      "versatility": 95,
+      "developmentSpeed": 88,
+      "careerGlobal": 90,
       "careerTurkey": 90
     }
   },
@@ -188,13 +188,13 @@ export const technologySeeds = [
     "officialUrl": "https://dev.java/learn/",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 82,
+      "performance": 81,
       "learning": 62,
       "ecosystem": 96,
-      "versatility": 88,
-      "developmentSpeed": 75,
-      "careerGlobal": 88,
-      "careerTurkey": 92
+      "versatility": 86,
+      "developmentSpeed": 76,
+      "careerGlobal": 87,
+      "careerTurkey": 91
     }
   },
   {
@@ -216,13 +216,13 @@ export const technologySeeds = [
     "officialUrl": "https://go.dev/doc/",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 88,
-      "learning": 82,
-      "ecosystem": 86,
-      "versatility": 78,
-      "developmentSpeed": 88,
+      "performance": 86,
+      "learning": 80,
+      "ecosystem": 87,
+      "versatility": 76,
+      "developmentSpeed": 86,
       "careerGlobal": 82,
-      "careerTurkey": 68
+      "careerTurkey": 66
     }
   },
   {
@@ -245,11 +245,11 @@ export const technologySeeds = [
     "evidenceTier": "strong",
     "scores": {
       "performance": 84,
-      "learning": 68,
-      "ecosystem": 95,
-      "versatility": 91,
+      "learning": 66,
+      "ecosystem": 94,
+      "versatility": 90,
       "developmentSpeed": 86,
-      "careerGlobal": 86,
+      "careerGlobal": 85,
       "careerTurkey": 94
     }
   },
@@ -260,12 +260,12 @@ export const technologySeeds = [
     "philosophy": "JavaScript ama ölçeklenebilir. Tür güvenliği her şeydir.",
     "pros": [
       "Büyük projelerde hata yakalamayı kolaylaştırır",
-      "Mükemmel IDE otomatik tamamlama",
+      "TypeScript 7 yerel derleyicisiyle çok daha hızlı tip denetimi ve derleme",
       "JS ekosisteminin tamamını kullanabilir"
     ],
     "cons": [
-      "Ekstra derleme (transpile) adımı gerekir",
       "Tür tanımları bazen karmaşıklaşabilir",
+      "TS 7'de kararlı programatik API henüz yok; bazı araçlar eski sürümde kalıyor",
       "Kurulumu JS'e göre bir tık daha zahmetli"
     ],
     "category": "programming",
@@ -273,12 +273,12 @@ export const technologySeeds = [
     "evidenceTier": "strong",
     "scores": {
       "performance": 68,
-      "learning": 62,
+      "learning": 64,
       "ecosystem": 100,
-      "versatility": 96,
-      "developmentSpeed": 86,
-      "careerGlobal": 97,
-      "careerTurkey": 91
+      "versatility": 95,
+      "developmentSpeed": 92,
+      "careerGlobal": 94,
+      "careerTurkey": 89
     }
   },
   {
@@ -301,12 +301,12 @@ export const technologySeeds = [
     "evidenceTier": "strong",
     "scores": {
       "performance": 63,
-      "learning": 83,
-      "ecosystem": 94,
-      "versatility": 72,
-      "developmentSpeed": 91,
-      "careerGlobal": 74,
-      "careerTurkey": 75
+      "learning": 80,
+      "ecosystem": 90,
+      "versatility": 58,
+      "developmentSpeed": 88,
+      "careerGlobal": 70,
+      "careerTurkey": 72
     }
   },
   {
@@ -328,13 +328,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.swift.org/documentation/",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 88,
-      "learning": 70,
+      "performance": 85,
+      "learning": 68,
       "ecosystem": 82,
-      "versatility": 62,
-      "developmentSpeed": 82,
+      "versatility": 66,
+      "developmentSpeed": 78,
       "careerGlobal": 72,
-      "careerTurkey": 56
+      "careerTurkey": 64
     }
   },
   {
@@ -356,13 +356,13 @@ export const technologySeeds = [
     "officialUrl": "https://kotlinlang.org/docs/home.html",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 82,
-      "learning": 72,
-      "ecosystem": 90,
+      "performance": 80,
+      "learning": 70,
+      "ecosystem": 88,
       "versatility": 82,
       "developmentSpeed": 86,
-      "careerGlobal": 78,
-      "careerTurkey": 76
+      "careerGlobal": 76,
+      "careerTurkey": 72
     }
   },
   {
@@ -385,12 +385,12 @@ export const technologySeeds = [
     "evidenceTier": "moderate",
     "scores": {
       "performance": 57,
-      "learning": 84,
-      "ecosystem": 88,
-      "versatility": 72,
-      "developmentSpeed": 94,
-      "careerGlobal": 58,
-      "careerTurkey": 40
+      "learning": 82,
+      "ecosystem": 84,
+      "versatility": 62,
+      "developmentSpeed": 92,
+      "careerGlobal": 56,
+      "careerTurkey": 32
     }
   },
   {
@@ -412,13 +412,13 @@ export const technologySeeds = [
     "officialUrl": "https://dart.dev/guides",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 78,
+      "performance": 76,
       "learning": 76,
-      "ecosystem": 77,
-      "versatility": 70,
+      "ecosystem": 78,
+      "versatility": 68,
       "developmentSpeed": 90,
-      "careerGlobal": 70,
-      "careerTurkey": 72
+      "careerGlobal": 66,
+      "careerTurkey": 70
     }
   },
   {
@@ -442,11 +442,11 @@ export const technologySeeds = [
     "scores": {
       "performance": 85,
       "learning": 72,
-      "ecosystem": 100,
-      "versatility": 68,
+      "ecosystem": 97,
+      "versatility": 58,
       "developmentSpeed": 84,
-      "careerGlobal": 94,
-      "careerTurkey": 96
+      "careerGlobal": 93,
+      "careerTurkey": 95
     }
   },
   {
@@ -468,13 +468,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.r-project.org/other-docs.html",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 50,
+      "performance": 44,
       "learning": 62,
-      "ecosystem": 88,
-      "versatility": 55,
-      "developmentSpeed": 90,
-      "careerGlobal": 68,
-      "careerTurkey": 55
+      "ecosystem": 85,
+      "versatility": 45,
+      "developmentSpeed": 84,
+      "careerGlobal": 64,
+      "careerTurkey": 45
     }
   },
   {
@@ -496,13 +496,13 @@ export const technologySeeds = [
     "officialUrl": "https://docs.scala-lang.org/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 82,
+      "performance": 79,
       "learning": 35,
-      "ecosystem": 88,
-      "versatility": 82,
-      "developmentSpeed": 63,
-      "careerGlobal": 67,
-      "careerTurkey": 50
+      "ecosystem": 82,
+      "versatility": 68,
+      "developmentSpeed": 62,
+      "careerGlobal": 60,
+      "careerTurkey": 42
     }
   },
   {
@@ -524,13 +524,13 @@ export const technologySeeds = [
     "officialUrl": "https://elixir-lang.org/docs.html",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 78,
-      "learning": 55,
-      "ecosystem": 79,
-      "versatility": 70,
-      "developmentSpeed": 86,
-      "careerGlobal": 61,
-      "careerTurkey": 38
+      "performance": 70,
+      "learning": 58,
+      "ecosystem": 78,
+      "versatility": 62,
+      "developmentSpeed": 85,
+      "careerGlobal": 58,
+      "careerTurkey": 22
     }
   },
   {
@@ -552,13 +552,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.haskell.org/documentation/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 78,
-      "learning": 22,
-      "ecosystem": 74,
-      "versatility": 65,
-      "developmentSpeed": 50,
-      "careerGlobal": 52,
-      "careerTurkey": 25
+      "performance": 74,
+      "learning": 24,
+      "ecosystem": 70,
+      "versatility": 58,
+      "developmentSpeed": 55,
+      "careerGlobal": 46,
+      "careerTurkey": 12
     }
   },
   {
@@ -580,13 +580,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.lua.org/docs.html",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 75,
-      "learning": 92,
-      "ecosystem": 72,
-      "versatility": 70,
-      "developmentSpeed": 92,
-      "careerGlobal": 56,
-      "careerTurkey": 30
+      "performance": 74,
+      "learning": 88,
+      "ecosystem": 70,
+      "versatility": 64,
+      "developmentSpeed": 86,
+      "careerGlobal": 54,
+      "careerTurkey": 22
     }
   },
   {
@@ -609,12 +609,12 @@ export const technologySeeds = [
     "evidenceTier": "limited",
     "scores": {
       "performance": 80,
-      "learning": 42,
-      "ecosystem": 70,
-      "versatility": 45,
-      "developmentSpeed": 58,
-      "careerGlobal": 50,
-      "careerTurkey": 28
+      "learning": 40,
+      "ecosystem": 66,
+      "versatility": 40,
+      "developmentSpeed": 52,
+      "careerGlobal": 42,
+      "careerTurkey": 25
     }
   },
   {
@@ -636,13 +636,13 @@ export const technologySeeds = [
     "officialUrl": "https://perldoc.perl.org/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 58,
+      "performance": 55,
       "learning": 48,
-      "ecosystem": 78,
-      "versatility": 70,
-      "developmentSpeed": 78,
-      "careerGlobal": 48,
-      "careerTurkey": 30
+      "ecosystem": 72,
+      "versatility": 58,
+      "developmentSpeed": 72,
+      "careerGlobal": 42,
+      "careerTurkey": 20
     }
   },
   {
@@ -664,13 +664,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.mathworks.com/help/matlab/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 75,
+      "performance": 70,
       "learning": 78,
-      "ecosystem": 92,
+      "ecosystem": 88,
       "versatility": 45,
-      "developmentSpeed": 92,
-      "careerGlobal": 67,
-      "careerTurkey": 70
+      "developmentSpeed": 86,
+      "careerGlobal": 62,
+      "careerTurkey": 66
     }
   },
   {
@@ -693,12 +693,12 @@ export const technologySeeds = [
     "evidenceTier": "moderate",
     "scores": {
       "performance": 92,
-      "learning": 42,
-      "ecosystem": 72,
-      "versatility": 38,
+      "learning": 48,
+      "ecosystem": 66,
+      "versatility": 35,
       "developmentSpeed": 48,
-      "careerGlobal": 55,
-      "careerTurkey": 45
+      "careerGlobal": 48,
+      "careerTurkey": 25
     }
   },
   {
@@ -720,13 +720,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.iso.org/standard/74527.html",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 68,
+      "performance": 70,
       "learning": 45,
-      "ecosystem": 64,
-      "versatility": 30,
-      "developmentSpeed": 42,
-      "careerGlobal": 62,
-      "careerTurkey": 58
+      "ecosystem": 58,
+      "versatility": 25,
+      "developmentSpeed": 38,
+      "careerGlobal": 55,
+      "careerTurkey": 45
     }
   },
   {
@@ -748,13 +748,13 @@ export const technologySeeds = [
     "officialUrl": "https://learn.microsoft.com/dotnet/visual-basic/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 75,
-      "learning": 87,
-      "ecosystem": 85,
-      "versatility": 68,
-      "developmentSpeed": 91,
-      "careerGlobal": 58,
-      "careerTurkey": 70
+      "performance": 80,
+      "learning": 80,
+      "ecosystem": 78,
+      "versatility": 58,
+      "developmentSpeed": 80,
+      "careerGlobal": 45,
+      "careerTurkey": 48
     }
   },
   {
@@ -776,13 +776,13 @@ export const technologySeeds = [
     "officialUrl": "https://learn.microsoft.com/dotnet/fsharp/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 78,
-      "learning": 45,
-      "ecosystem": 82,
-      "versatility": 70,
+      "performance": 80,
+      "learning": 50,
+      "ecosystem": 78,
+      "versatility": 68,
       "developmentSpeed": 80,
-      "careerGlobal": 55,
-      "careerTurkey": 36
+      "careerGlobal": 45,
+      "careerTurkey": 15
     }
   },
   {
@@ -804,13 +804,13 @@ export const technologySeeds = [
     "officialUrl": "https://clojure.org/guides/getting_started",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 72,
-      "learning": 38,
-      "ecosystem": 76,
-      "versatility": 72,
-      "developmentSpeed": 80,
-      "careerGlobal": 53,
-      "careerTurkey": 30
+      "performance": 70,
+      "learning": 42,
+      "ecosystem": 74,
+      "versatility": 66,
+      "developmentSpeed": 82,
+      "careerGlobal": 46,
+      "careerTurkey": 12
     }
   },
   {
@@ -833,12 +833,12 @@ export const technologySeeds = [
     "evidenceTier": "limited",
     "scores": {
       "performance": 67,
-      "learning": 74,
-      "ecosystem": 84,
-      "versatility": 74,
-      "developmentSpeed": 88,
-      "careerGlobal": 56,
-      "careerTurkey": 45
+      "learning": 72,
+      "ecosystem": 76,
+      "versatility": 60,
+      "developmentSpeed": 80,
+      "careerGlobal": 48,
+      "careerTurkey": 35
     }
   },
   {
@@ -860,13 +860,13 @@ export const technologySeeds = [
     "officialUrl": "https://docs.julialang.org/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 88,
-      "learning": 68,
-      "ecosystem": 76,
-      "versatility": 65,
-      "developmentSpeed": 89,
-      "careerGlobal": 61,
-      "careerTurkey": 42
+      "performance": 82,
+      "learning": 70,
+      "ecosystem": 74,
+      "versatility": 55,
+      "developmentSpeed": 82,
+      "careerGlobal": 50,
+      "careerTurkey": 18
     }
   },
   {
@@ -880,8 +880,8 @@ export const technologySeeds = [
       "LLVM backend ile yüksek performans"
     ],
     "cons": [
-      "Henüz 1.0 bile değil",
-      "Ekosistem çok küçük",
+      "Hâlâ 1.0 değil; sürümler arası kırıcı değişiklikler sürüyor",
+      "Ekosistem küçük ve araçlar (dil sunucusu dahil) sürümlere geç yetişiyor",
       "Dokümantasyon eksik"
     ],
     "category": "programming",
@@ -889,12 +889,12 @@ export const technologySeeds = [
     "evidenceTier": "moderate",
     "scores": {
       "performance": 93,
-      "learning": 35,
-      "ecosystem": 58,
+      "learning": 42,
+      "ecosystem": 60,
       "versatility": 68,
-      "developmentSpeed": 55,
-      "careerGlobal": 54,
-      "careerTurkey": 25
+      "developmentSpeed": 56,
+      "careerGlobal": 44,
+      "careerTurkey": 10
     }
   },
   {
@@ -916,13 +916,13 @@ export const technologySeeds = [
     "officialUrl": "https://nim-lang.org/documentation.html",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 88,
-      "learning": 72,
-      "ecosystem": 54,
-      "versatility": 73,
-      "developmentSpeed": 78,
-      "careerGlobal": 40,
-      "careerTurkey": 18
+      "performance": 86,
+      "learning": 68,
+      "ecosystem": 50,
+      "versatility": 66,
+      "developmentSpeed": 74,
+      "careerGlobal": 25,
+      "careerTurkey": 5
     }
   },
   {
@@ -944,13 +944,13 @@ export const technologySeeds = [
     "officialUrl": "https://crystal-lang.org/reference/",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 82,
-      "learning": 75,
-      "ecosystem": 50,
-      "versatility": 62,
-      "developmentSpeed": 82,
-      "careerGlobal": 40,
-      "careerTurkey": 18
+      "performance": 84,
+      "learning": 72,
+      "ecosystem": 48,
+      "versatility": 52,
+      "developmentSpeed": 72,
+      "careerGlobal": 24,
+      "careerTurkey": 5
     }
   },
   {
@@ -972,13 +972,13 @@ export const technologySeeds = [
     "officialUrl": "https://ocaml.org/docs",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 86,
-      "learning": 34,
-      "ecosystem": 70,
-      "versatility": 70,
-      "developmentSpeed": 69,
-      "careerGlobal": 56,
-      "careerTurkey": 28
+      "performance": 84,
+      "learning": 40,
+      "ecosystem": 68,
+      "versatility": 62,
+      "developmentSpeed": 72,
+      "careerGlobal": 46,
+      "careerTurkey": 8
     }
   },
   {
@@ -1000,13 +1000,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.erlang.org/docs",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 72,
-      "learning": 38,
-      "ecosystem": 78,
-      "versatility": 65,
-      "developmentSpeed": 74,
-      "careerGlobal": 58,
-      "careerTurkey": 42
+      "performance": 70,
+      "learning": 42,
+      "ecosystem": 72,
+      "versatility": 55,
+      "developmentSpeed": 70,
+      "careerGlobal": 48,
+      "careerTurkey": 20
     }
   },
   {
@@ -1028,13 +1028,13 @@ export const technologySeeds = [
     "officialUrl": "https://lisp-lang.org/learn/",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 70,
+      "performance": 76,
       "learning": 40,
-      "ecosystem": 68,
-      "versatility": 82,
+      "ecosystem": 60,
+      "versatility": 62,
       "developmentSpeed": 72,
-      "careerGlobal": 40,
-      "careerTurkey": 18
+      "careerGlobal": 28,
+      "careerTurkey": 6
     }
   },
   {
@@ -1058,11 +1058,11 @@ export const technologySeeds = [
     "scores": {
       "performance": 48,
       "learning": 28,
-      "ecosystem": 56,
-      "versatility": 50,
-      "developmentSpeed": 65,
-      "careerGlobal": 38,
-      "careerTurkey": 20
+      "ecosystem": 48,
+      "versatility": 35,
+      "developmentSpeed": 50,
+      "careerGlobal": 22,
+      "careerTurkey": 6
     }
   },
   {
@@ -1084,13 +1084,13 @@ export const technologySeeds = [
     "officialUrl": "https://learn.adacore.com/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 88,
+      "performance": 90,
       "learning": 42,
-      "ecosystem": 72,
-      "versatility": 56,
-      "developmentSpeed": 50,
-      "careerGlobal": 55,
-      "careerTurkey": 58
+      "ecosystem": 62,
+      "versatility": 50,
+      "developmentSpeed": 48,
+      "careerGlobal": 50,
+      "careerTurkey": 40
     }
   },
   {
@@ -1112,13 +1112,13 @@ export const technologySeeds = [
     "officialUrl": "https://docwiki.embarcadero.com/RADStudio/en/Delphi_Language_Guide_Index",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 72,
-      "learning": 86,
-      "ecosystem": 66,
-      "versatility": 55,
+      "performance": 78,
+      "learning": 82,
+      "ecosystem": 62,
+      "versatility": 56,
       "developmentSpeed": 78,
-      "careerGlobal": 52,
-      "careerTurkey": 65
+      "careerGlobal": 42,
+      "careerTurkey": 55
     }
   },
   {
@@ -1140,13 +1140,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.gnu.org/software/bash/manual/",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 52,
-      "learning": 66,
-      "ecosystem": 94,
-      "versatility": 76,
-      "developmentSpeed": 88,
+      "performance": 38,
+      "learning": 60,
+      "ecosystem": 90,
+      "versatility": 55,
+      "developmentSpeed": 72,
       "careerGlobal": 80,
-      "careerTurkey": 78
+      "careerTurkey": 72
     }
   },
   {
@@ -1168,13 +1168,13 @@ export const technologySeeds = [
     "officialUrl": "https://learn.microsoft.com/powershell/",
     "evidenceTier": "strong",
     "scores": {
-      "performance": 58,
+      "performance": 42,
       "learning": 60,
-      "ecosystem": 90,
-      "versatility": 72,
-      "developmentSpeed": 88,
-      "careerGlobal": 78,
-      "careerTurkey": 83
+      "ecosystem": 84,
+      "versatility": 55,
+      "developmentSpeed": 76,
+      "careerGlobal": 72,
+      "careerTurkey": 68
     }
   },
   {
@@ -1196,13 +1196,13 @@ export const technologySeeds = [
     "officialUrl": "https://docs.soliditylang.org/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 55,
+      "performance": 50,
       "learning": 45,
-      "ecosystem": 75,
-      "versatility": 35,
-      "developmentSpeed": 65,
-      "careerGlobal": 63,
-      "careerTurkey": 45
+      "ecosystem": 74,
+      "versatility": 25,
+      "developmentSpeed": 58,
+      "careerGlobal": 55,
+      "careerTurkey": 35
     }
   },
   {
@@ -1224,13 +1224,13 @@ export const technologySeeds = [
     "officialUrl": "https://standards.ieee.org/ieee/1076/6843/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 92,
+      "performance": 93,
       "learning": 30,
-      "ecosystem": 68,
-      "versatility": 28,
-      "developmentSpeed": 42,
-      "careerGlobal": 68,
-      "careerTurkey": 72
+      "ecosystem": 66,
+      "versatility": 30,
+      "developmentSpeed": 35,
+      "careerGlobal": 62,
+      "careerTurkey": 74
     }
   },
   {
@@ -1252,13 +1252,13 @@ export const technologySeeds = [
     "officialUrl": "https://standards.ieee.org/ieee/1800/7743/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 94,
+      "performance": 93,
       "learning": 34,
       "ecosystem": 78,
-      "versatility": 32,
-      "developmentSpeed": 48,
-      "careerGlobal": 76,
-      "careerTurkey": 68
+      "versatility": 34,
+      "developmentSpeed": 40,
+      "careerGlobal": 78,
+      "careerTurkey": 66
     }
   },
   {
@@ -1280,13 +1280,13 @@ export const technologySeeds = [
     "officialUrl": "https://dlang.org/spec/spec.html",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 87,
+      "performance": 86,
       "learning": 52,
-      "ecosystem": 55,
-      "versatility": 76,
-      "developmentSpeed": 67,
-      "careerGlobal": 39,
-      "careerTurkey": 20
+      "ecosystem": 50,
+      "versatility": 66,
+      "developmentSpeed": 68,
+      "careerGlobal": 24,
+      "careerTurkey": 5
     }
   },
   {
@@ -1308,13 +1308,13 @@ export const technologySeeds = [
     "officialUrl": "https://docs.hhvm.com/hack/",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 75,
-      "learning": 62,
-      "ecosystem": 52,
-      "versatility": 40,
-      "developmentSpeed": 78,
-      "careerGlobal": 35,
-      "careerTurkey": 15
+      "performance": 74,
+      "learning": 58,
+      "ecosystem": 40,
+      "versatility": 25,
+      "developmentSpeed": 70,
+      "careerGlobal": 22,
+      "careerTurkey": 3
     }
   },
   {
@@ -1336,13 +1336,13 @@ export const technologySeeds = [
     "officialUrl": "https://help.sap.com/doc/abapdocu_latest_index_htm/latest/en-US/index.htm",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 66,
+      "performance": 58,
       "learning": 45,
-      "ecosystem": 73,
+      "ecosystem": 72,
       "versatility": 22,
-      "developmentSpeed": 63,
-      "careerGlobal": 72,
-      "careerTurkey": 82
+      "developmentSpeed": 58,
+      "careerGlobal": 70,
+      "careerTurkey": 80
     }
   },
   {
@@ -1366,10 +1366,10 @@ export const technologySeeds = [
     "scores": {
       "performance": 20,
       "learning": 100,
-      "ecosystem": 70,
-      "versatility": 28,
-      "developmentSpeed": 96,
-      "careerGlobal": 22,
+      "ecosystem": 68,
+      "versatility": 22,
+      "developmentSpeed": 92,
+      "careerGlobal": 18,
       "careerTurkey": 20
     }
   },
@@ -1392,13 +1392,13 @@ export const technologySeeds = [
     "officialUrl": "https://docs.vlang.io/",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 82,
-      "learning": 78,
-      "ecosystem": 35,
-      "versatility": 58,
-      "developmentSpeed": 80,
-      "careerGlobal": 32,
-      "careerTurkey": 15
+      "performance": 80,
+      "learning": 72,
+      "ecosystem": 34,
+      "versatility": 52,
+      "developmentSpeed": 68,
+      "careerGlobal": 12,
+      "careerTurkey": 3
     }
   },
   {
@@ -1421,12 +1421,12 @@ export const technologySeeds = [
     "evidenceTier": "limited",
     "scores": {
       "performance": 35,
-      "learning": 45,
-      "ecosystem": 12,
-      "versatility": 20,
-      "developmentSpeed": 25,
-      "careerGlobal": 18,
-      "careerTurkey": 5
+      "learning": 35,
+      "ecosystem": 10,
+      "versatility": 15,
+      "developmentSpeed": 18,
+      "careerGlobal": 8,
+      "careerTurkey": 2
     }
   },
   {
@@ -1436,25 +1436,25 @@ export const technologySeeds = [
     "philosophy": "Python ama C kadar hızlı. AI için süper güç.",
     "pros": [
       "Python sözdizimi ile C/Rust performansı",
-      "AI/ML workload'ları için optimize",
-      "Python ekosistemi ile uyumlu"
+      "AI/ML workload'ları için optimize (CPU + GPU)",
+      "1.0 sürümüyle (Ağustos 2026) kararlı dil çekirdeği"
     ],
     "cons": [
-      "1.0 öncesi dil ve kütüphane yüzeyi hızlı değişiyor",
-      "Modular şirketine bağımlı",
+      "Paket ekosistemi ve topluluk hâlâ çok küçük",
+      "Yol haritası Modular'a (artık bir Qualcomm şirketi) bağımlı",
       "Genel amaçlı üretim örnekleri hâlâ sınırlı"
     ],
     "category": "programming",
     "officialUrl": "https://docs.modular.com/mojo/manual/",
-    "evidenceTier": "limited",
+    "evidenceTier": "moderate",
     "scores": {
       "performance": 86,
-      "learning": 58,
-      "ecosystem": 35,
-      "versatility": 52,
-      "developmentSpeed": 65,
-      "careerGlobal": 40,
-      "careerTurkey": 18
+      "learning": 60,
+      "ecosystem": 40,
+      "versatility": 48,
+      "developmentSpeed": 66,
+      "careerGlobal": 34,
+      "careerTurkey": 8
     }
   },
   {
@@ -1474,15 +1474,15 @@ export const technologySeeds = [
     ],
     "category": "programming",
     "officialUrl": "https://gleam.run/documentation/",
-    "evidenceTier": "limited",
+    "evidenceTier": "moderate",
     "scores": {
-      "performance": 76,
-      "learning": 68,
+      "performance": 69,
+      "learning": 72,
       "ecosystem": 55,
-      "versatility": 62,
-      "developmentSpeed": 82,
-      "careerGlobal": 45,
-      "careerTurkey": 18
+      "versatility": 58,
+      "developmentSpeed": 80,
+      "careerGlobal": 30,
+      "careerTurkey": 4
     }
   },
   {
@@ -1504,13 +1504,13 @@ export const technologySeeds = [
     "officialUrl": "https://docs.raku.org/",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 54,
-      "learning": 45,
-      "ecosystem": 52,
-      "versatility": 75,
-      "developmentSpeed": 72,
-      "careerGlobal": 33,
-      "careerTurkey": 15
+      "performance": 40,
+      "learning": 42,
+      "ecosystem": 42,
+      "versatility": 52,
+      "developmentSpeed": 66,
+      "careerGlobal": 15,
+      "careerTurkey": 3
     }
   },
   {
@@ -1532,13 +1532,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.tcl.tk/doc/",
     "evidenceTier": "limited",
     "scores": {
-      "performance": 57,
-      "learning": 82,
-      "ecosystem": 64,
-      "versatility": 65,
-      "developmentSpeed": 82,
-      "careerGlobal": 42,
-      "careerTurkey": 26
+      "performance": 50,
+      "learning": 76,
+      "ecosystem": 55,
+      "versatility": 50,
+      "developmentSpeed": 72,
+      "careerGlobal": 40,
+      "careerTurkey": 18
     }
   },
   {
@@ -1560,13 +1560,13 @@ export const technologySeeds = [
     "officialUrl": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 66,
+      "performance": 55,
       "learning": 62,
-      "ecosystem": 80,
-      "versatility": 32,
-      "developmentSpeed": 77,
-      "careerGlobal": 74,
-      "careerTurkey": 68
+      "ecosystem": 76,
+      "versatility": 22,
+      "developmentSpeed": 68,
+      "careerGlobal": 70,
+      "careerTurkey": 52
     }
   },
   {
@@ -1588,13 +1588,13 @@ export const technologySeeds = [
     "officialUrl": "https://www.ni.com/docs/en-US/bundle/labview/",
     "evidenceTier": "moderate",
     "scores": {
-      "performance": 82,
-      "learning": 80,
-      "ecosystem": 88,
-      "versatility": 42,
-      "developmentSpeed": 94,
-      "careerGlobal": 64,
-      "careerTurkey": 66
+      "performance": 75,
+      "learning": 74,
+      "ecosystem": 78,
+      "versatility": 38,
+      "developmentSpeed": 82,
+      "careerGlobal": 58,
+      "careerTurkey": 58
     }
   },
   {
@@ -1618,11 +1618,11 @@ export const technologySeeds = [
     "scores": {
       "performance": 82,
       "learning": 62,
-      "ecosystem": 86,
+      "ecosystem": 80,
       "versatility": 28,
-      "developmentSpeed": 78,
-      "careerGlobal": 80,
-      "careerTurkey": 88
+      "developmentSpeed": 70,
+      "careerGlobal": 72,
+      "careerTurkey": 84
     }
   },
   {
@@ -1646,11 +1646,403 @@ export const technologySeeds = [
     "scores": {
       "performance": 82,
       "learning": 64,
-      "ecosystem": 90,
+      "ecosystem": 84,
+      "versatility": 30,
+      "developmentSpeed": 72,
+      "careerGlobal": 76,
+      "careerTurkey": 88
+    }
+  },
+  {
+    "id": "nix",
+    "name": "Nix",
+    "color": "#7e7eff",
+    "philosophy": "Yeniden üretilebilirlik her şeydir. Paketler ve sistemler saf fonksiyonlardır.",
+    "pros": [
+      "Bit düzeyinde yeniden üretilebilir derleme ve ortamlar",
+      "nixpkgs ile en büyük paket koleksiyonlarından biri",
+      "Atomik güncelleme ve anında geri alma (rollback)"
+    ],
+    "cons": [
+      "Öğrenme eğrisi çok dik, hata mesajları anlaşılması zor",
+      "Dokümantasyon dağınık; flakes hâlâ \"deneysel\" etiketli",
+      "Yalnızca paketleme ve yapılandırma alanında kullanılır"
+    ],
+    "category": "programming",
+    "officialUrl": "https://nix.dev/",
+    "evidenceTier": "moderate",
+    "scores": {
+      "performance": 40,
+      "learning": 28,
+      "ecosystem": 74,
+      "versatility": 35,
+      "developmentSpeed": 58,
+      "careerGlobal": 48,
+      "careerTurkey": 15
+    }
+  },
+  {
+    "id": "hcl",
+    "name": "HCL (Terraform)",
+    "color": "#844fba",
+    "philosophy": "Altyapıyı kod olarak tanımla. İstenen durumu yaz, gerisini araç halletsin.",
+    "pros": [
+      "Bulut altyapısında fiilî standart (Terraform / OpenTofu)",
+      "Binlerce sağlayıcı (provider) ile her buluta erişim",
+      "DevOps ve platform mühendisliği ilanlarının değişmez şartı"
+    ],
+    "cons": [
+      "Genel amaçlı bir dil değil; döngü ve mantık kısıtlı",
+      "State yönetimi hataya açık ve ekip içinde koordinasyon ister",
+      "Lisans değişikliği sonrası ekosistem Terraform / OpenTofu olarak bölündü"
+    ],
+    "category": "programming",
+    "officialUrl": "https://developer.hashicorp.com/terraform/language",
+    "evidenceTier": "moderate",
+    "scores": {
+      "performance": 55,
+      "learning": 74,
+      "ecosystem": 88,
       "versatility": 30,
       "developmentSpeed": 80,
-      "careerGlobal": 82,
-      "careerTurkey": 94
+      "careerGlobal": 80,
+      "careerTurkey": 64
+    }
+  },
+  {
+    "id": "vba",
+    "name": "VBA",
+    "color": "#867db1",
+    "philosophy": "Excel'i programla. Ofis işlerini otomatikleştirmenin en kısa yolu.",
+    "pros": [
+      "Her Office kurulumunda hazır, ek kurulum gerektirmez",
+      "Makro kaydedici ile programcı olmayanlar da başlayabilir",
+      "Finans, raporlama ve operasyon ekiplerinde devasa kurulu taban"
+    ],
+    "cons": [
+      "Dil ve editör yıllardır gelişmiyor",
+      "Sürüm kontrolü, test ve paket yönetimi neredeyse yok",
+      "Microsoft yeni yatırımı Office Scripts ve Python in Excel'e kaydırıyor"
+    ],
+    "category": "programming",
+    "officialUrl": "https://learn.microsoft.com/office/vba/api/overview/",
+    "evidenceTier": "moderate",
+    "scores": {
+      "performance": 45,
+      "learning": 80,
+      "ecosystem": 62,
+      "versatility": 30,
+      "developmentSpeed": 72,
+      "careerGlobal": 52,
+      "careerTurkey": 58
+    }
+  },
+  {
+    "id": "gdscript",
+    "name": "GDScript",
+    "color": "#478cbf",
+    "philosophy": "Godot için tasarlandı. Oyun mantığını Python rahatlığında yaz.",
+    "pros": [
+      "Python benzeri sözdizimi, editörle tam bütünleşik",
+      "Anında çalıştırma ve hot reload ile çok hızlı iterasyon",
+      "Açık kaynak Godot ile lisans ücreti yok"
+    ],
+    "cons": [
+      "Godot motoru dışında kullanılmaz",
+      "Hesap yoğun işlerde C#/C++ kadar hızlı değil",
+      "Maaşlı iş ilanı sayısı Unity/Unreal'a göre çok az"
+    ],
+    "category": "programming",
+    "officialUrl": "https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/index.html",
+    "evidenceTier": "moderate",
+    "scores": {
+      "performance": 50,
+      "learning": 88,
+      "ecosystem": 66,
+      "versatility": 38,
+      "developmentSpeed": 88,
+      "careerGlobal": 42,
+      "careerTurkey": 18
+    }
+  },
+  {
+    "id": "luau",
+    "name": "Luau",
+    "color": "#00a2ff",
+    "philosophy": "Lua ama kademeli tiplerle ve daha hızlı. Roblox'un dili.",
+    "pros": [
+      "Lua sadeliği üzerine kademeli (gradual) tip sistemi",
+      "Hızlı bytecode VM ve yerel kod üretimi",
+      "Roblox'un devasa içerik üretici ekonomisinin tek dili"
+    ],
+    "cons": [
+      "Roblox dışında kullanım alanı çok dar",
+      "Bağımsız paket ekosistemi küçük",
+      "Kariyer çoğunlukla serbest/üretici gelirine dayanıyor"
+    ],
+    "category": "programming",
+    "officialUrl": "https://luau.org/",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 72,
+      "learning": 88,
+      "ecosystem": 62,
+      "versatility": 28,
+      "developmentSpeed": 86,
+      "careerGlobal": 45,
+      "careerTurkey": 15
+    }
+  },
+  {
+    "id": "odin",
+    "name": "Odin",
+    "color": "#3882d2",
+    "philosophy": "Programlamanın keyfi için. Veri odaklı, sade bir C alternatifi.",
+    "pros": [
+      "C seviyesinde performans, çok hızlı derleme",
+      "Dizi programlama, SOA ve matris tipleri dile gömülü",
+      "Grafik/oyun kütüphaneleri (vendor) derleyiciyle birlikte gelir"
+    ],
+    "cons": [
+      "Henüz 1.0 yok; aylık \"dev\" sürümleriyle ilerliyor",
+      "Topluluk ve kütüphane ekosistemi çok küçük",
+      "İş piyasasında birkaç şirket dışında karşılığı yok"
+    ],
+    "category": "programming",
+    "officialUrl": "https://odin-lang.org/docs/",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 92,
+      "learning": 55,
+      "ecosystem": 42,
+      "versatility": 55,
+      "developmentSpeed": 68,
+      "careerGlobal": 18,
+      "careerTurkey": 3
+    }
+  },
+  {
+    "id": "elm",
+    "name": "Elm",
+    "color": "#60b5cc",
+    "philosophy": "Çalışma zamanı hatası olmayan web arayüzleri. Derleyici senin dostun.",
+    "pros": [
+      "Pratikte çalışma zamanı istisnası yok",
+      "Sektörün en anlaşılır derleyici hata mesajları",
+      "The Elm Architecture, Redux gibi kalıplara ilham verdi"
+    ],
+    "cons": [
+      "Son kararlı sürüm 2019'dan; gelişim çok yavaş",
+      "Yalnızca tarayıcı arayüzü için; JS ile etkileşim zahmetli",
+      "İş ilanı neredeyse yok"
+    ],
+    "category": "programming",
+    "officialUrl": "https://guide.elm-lang.org/",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 62,
+      "learning": 70,
+      "ecosystem": 45,
+      "versatility": 18,
+      "developmentSpeed": 78,
+      "careerGlobal": 20,
+      "careerTurkey": 3
+    }
+  },
+  {
+    "id": "lean",
+    "name": "Lean 4",
+    "color": "#5b6ee1",
+    "philosophy": "Kanıtla, sonra çalıştır. Matematik ve yazılım aynı dilde.",
+    "pros": [
+      "Hem teorem ispatlayıcı hem genel amaçlı fonksiyonel dil",
+      "Mathlib ile dev bir formel matematik kütüphanesi",
+      "Yapay zekâ destekli ispat ve doğrulama araştırmalarının ortak dili"
+    ],
+    "cons": [
+      "Bağımlı tipler ve ispat taktikleri çok dik bir öğrenme eğrisi getirir",
+      "Sık sürüm çıkıyor; kütüphaneler arası uyum çaba ister",
+      "Araştırma ve doğrulama dışında iş alanı çok dar"
+    ],
+    "category": "programming",
+    "officialUrl": "https://lean-lang.org/documentation/",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 70,
+      "learning": 22,
+      "ecosystem": 58,
+      "versatility": 35,
+      "developmentSpeed": 45,
+      "careerGlobal": 34,
+      "careerTurkey": 4
+    }
+  },
+  {
+    "id": "sas",
+    "name": "SAS",
+    "color": "#0766d1",
+    "philosophy": "Kurumsal analitik. Denetlenebilir, doğrulanmış istatistik.",
+    "pros": [
+      "Bankacılık riski ve klinik araştırmada düzenleyici kabulü yüksek",
+      "Büyük tablolar üzerinde olgun ve doğrulanmış prosedürler",
+      "Kurumsal destek ve uzun vadeli geriye uyumluluk"
+    ],
+    "cons": [
+      "Çok pahalı lisans",
+      "Python ve R karşısında pazar payı kaybediyor",
+      "Kapalı ekosistem; modern yazılım pratiklerinden uzak"
+    ],
+    "category": "programming",
+    "officialUrl": "https://documentation.sas.com/",
+    "evidenceTier": "moderate",
+    "scores": {
+      "performance": 70,
+      "learning": 62,
+      "ecosystem": 74,
+      "versatility": 30,
+      "developmentSpeed": 74,
+      "careerGlobal": 58,
+      "careerTurkey": 58
+    }
+  },
+  {
+    "id": "structuredtext",
+    "name": "Structured Text (IEC 61131-3)",
+    "color": "#2f6f9f",
+    "philosophy": "Fabrikayı kodla. PLC'ler için Pascal benzeri metin dili.",
+    "pros": [
+      "IEC 61131-3 standardı; Siemens, Beckhoff, CODESYS hepsinde var",
+      "Deterministik, gerçek zamanlı çevrimsel yürütme",
+      "Karmaşık algoritmalar için Ladder'dan çok daha uygun"
+    ],
+    "cons": [
+      "Üretici IDE'lerine ve lehçelerine bağımlı",
+      "Sürüm kontrolü ve otomatik test kültürü zayıf",
+      "Endüstriyel otomasyon dışında kullanılmaz"
+    ],
+    "category": "programming",
+    "officialUrl": "https://plcopen.org/iec-61131-3",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 80,
+      "learning": 68,
+      "ecosystem": 68,
+      "versatility": 28,
+      "developmentSpeed": 62,
+      "careerGlobal": 66,
+      "careerTurkey": 72
+    }
+  },
+  {
+    "id": "plpgsql",
+    "name": "PL/pgSQL",
+    "color": "#336791",
+    "philosophy": "PostgreSQL'in içinde programla. Açık kaynak veritabanının prosedürel gücü.",
+    "pros": [
+      "Geliştiricilerin en çok kullandığı veritabanının yerleşik dili",
+      "Lisans maliyeti yok; Oracle'dan geçişlerde doğal hedef",
+      "Uzantılar (extension) ile çok zengin ekosistem"
+    ],
+    "cons": [
+      "PostgreSQL'e özgü; başka motorlara taşınmaz",
+      "Veritabanına gömülü iş mantığının testi ve sürümlemesi zor",
+      "Genel amaçlı programlama için değil"
+    ],
+    "category": "sql",
+    "officialUrl": "https://www.postgresql.org/docs/current/plpgsql.html",
+    "evidenceTier": "moderate",
+    "scores": {
+      "performance": 80,
+      "learning": 64,
+      "ecosystem": 88,
+      "versatility": 30,
+      "developmentSpeed": 76,
+      "careerGlobal": 74,
+      "careerTurkey": 70
+    }
+  },
+  {
+    "id": "chisel",
+    "name": "Chisel",
+    "color": "#c0392b",
+    "philosophy": "Donanımı üret, elle yazma. Scala içine gömülü donanım inşa dili.",
+    "pros": [
+      "Parametrik donanım üreteçleriyle yüksek yeniden kullanım",
+      "RISC-V dünyasının (Rocket, BOOM, Chipyard) temel aracı",
+      "Sentezlenebilir Verilog üretir; mevcut akışlara bağlanır"
+    ],
+    "cons": [
+      "Hem Scala hem dijital tasarım bilgisi gerektirir",
+      "Üretilen RTL'de hata ayıklama ve doğrulama akışı zor",
+      "Endüstride Verilog/VHDL'e göre çok az kullanılıyor"
+    ],
+    "category": "hdl",
+    "officialUrl": "https://www.chisel-lang.org/docs",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 90,
+      "learning": 28,
+      "ecosystem": 50,
+      "versatility": 26,
+      "developmentSpeed": 60,
+      "careerGlobal": 38,
+      "careerTurkey": 8
+    }
+  },
+  {
+    "id": "ladder",
+    "name": "Ladder Logic (PLC)",
+    "color": "#c97a1e",
+    "philosophy": "Röle şemasını programa çevir. Elektrikçinin okuyabildiği kod.",
+    "pros": [
+      "Her PLC üreticisinin desteklediği ortak görsel dil",
+      "Canlı izleme ile sahada arıza bulmak çok kolay",
+      "Üretim tesislerinde devasa kurulu taban"
+    ],
+    "cons": [
+      "Karmaşık algoritma ve veri işleme için elverişsiz",
+      "Üretici araçlarına bağımlı, taşınabilirliği sınırlı",
+      "Endüstriyel otomasyon dışında kullanılmaz"
+    ],
+    "category": "visual",
+    "officialUrl": "https://plcopen.org/iec-61131-3",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 78,
+      "learning": 76,
+      "ecosystem": 72,
+      "versatility": 22,
+      "developmentSpeed": 68,
+      "careerGlobal": 64,
+      "careerTurkey": 74
+    }
+  },
+  {
+    "id": "blueprints",
+    "name": "Blueprints (Unreal Engine)",
+    "color": "#1b6fd1",
+    "philosophy": "Kod yazmadan oyun mantığı kur. Düğümleri bağla, çalıştır.",
+    "pros": [
+      "Tasarımcılar programcı olmadan oynanış kurabilir",
+      "Editör içinde anında deneme ve görsel hata ayıklama",
+      "Unreal Engine'in tüm API'lerine doğrudan erişim"
+    ],
+    "cons": [
+      "Büyük graflar hızla karmaşıklaşır",
+      "İkili dosya biçimi nedeniyle birleştirme (merge) ve kod inceleme zor",
+      "C++'a göre belirgin biçimde yavaş"
+    ],
+    "category": "visual",
+    "officialUrl": "https://dev.epicgames.com/documentation/en-us/unreal-engine/blueprints-visual-scripting-in-unreal-engine",
+    "evidenceTier": "limited",
+    "scores": {
+      "performance": 50,
+      "learning": 84,
+      "ecosystem": 82,
+      "versatility": 34,
+      "developmentSpeed": 82,
+      "careerGlobal": 62,
+      "careerTurkey": 36
     }
   }
 ] satisfies TechnologySeed[];

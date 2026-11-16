@@ -146,7 +146,7 @@ function evidence(
   } as const;
   const metricSources = {
     performance: [official, sources.benchmarksGame],
-    learning: [official, sources.stackOverflowDevelopers],
+    learning: [official, sources.stackOverflowKnowledge],
     ecosystem: [official, sources.stackOverflowTechnology, sources.githubOctoverse],
     versatility: [official],
     developmentSpeed: [official, sources.stackOverflowTechnology],
@@ -170,7 +170,7 @@ function careerEvidence(seed: TechnologySeed, score: number, turkey: boolean): S
     rationaleEn: `${seed.name}, in the ${turkey ? 'Türkiye' : 'global'} market, ${englishBands.career[bandIndex(score)]}.`,
     sources: turkey
       ? [sources.techcareerTurkey, sources.kariyerNet, officialSource(seed.name, seed.officialUrl)]
-      : [sources.stackOverflowTechnology, sources.githubOctoverse, officialSource(seed.name, seed.officialUrl)],
+      : [sources.stackOverflowTechnology, sources.githubOctoverse, sources.tiobeIndex, officialSource(seed.name, seed.officialUrl)],
     updatedAt: METHODOLOGY_UPDATED_AT,
     confidence: confidenceFor(seed, 'career', turkey),
   };

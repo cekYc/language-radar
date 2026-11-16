@@ -4,7 +4,7 @@ Programlama dillerini ve ilişkili teknolojileri kaynaklı 0–100 puanlarla inc
 
 ## v2 ile gelenler
 
-- 59 teknoloji için aynı sabit rubrikle altı metrik
+- 73 teknoloji için aynı sabit rubrikle altı metrik
 - Her puanda kısa gerekçe, kaynak bağlantısı, güncelleme tarihi ve güven seviyesi
 - Türkiye ve Global için ayrı kariyer puanları
 - Kalıcı TR/EN seçiciyle Türkçe ve İngilizce arayüz, rubrik ve puan gerekçeleri
@@ -34,11 +34,11 @@ Rubriğin çalıştırılabilir tanımı [src/data/rubric.ts](src/data/rubric.ts
 ## Kaynak yaklaşımı
 
 - Performans karşılaştırmalarında kapsam uygunsa [Computer Language Benchmarks Game](https://benchmarksgame-team.pages.debian.net/benchmarksgame/box-plot-summary-charts.html) ve resmi runtime/standart belgeleri
-- Kullanım, ekosistem ve global kariyerde [Stack Overflow 2025 Developer Survey](https://survey.stackoverflow.co/2025/technology) ile [GitHub Octoverse 2025](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/)
+- Kullanım, ekosistem ve global kariyerde [Stack Overflow 2026 Developer Survey](https://survey.stackoverflow.co/2026/technology), [GitHub Octoverse 2026](https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/) ve [TIOBE Index (Kasım 2026)](https://www.tiobe.com/tiobe-index/)
 - Türkiye kariyerinde [Techcareer.net 2025 Yazılımcı Araştırması](https://cdn.gcp.techcareer.net/Tech_Report_2025_Yazilimci_Arastirmasi_and_Maas_Raporu_Aralik_2025_e064c37a00/Tech_Report_2025_Yazilimci_Arastirmasi_and_Maas_Raporu_Aralik_2025_e064c37a00.pdf) ve yerel ilan sinyalleri
 - Her teknoloji için üreticinin resmi dokümantasyonu veya ilgili standart kurumu
 
-Kaynak kapsamı zayıf ya da kategoriler arası doğrudan ölçüm uygun değilse güven seviyesi özellikle `Düşük` tutulur. Değerlendirme tarihi `2026-08-09` olarak her puana kaydedilmiştir.
+Kaynak kapsamı zayıf ya da kategoriler arası doğrudan ölçüm uygun değilse güven seviyesi özellikle `Düşük` tutulur. Değerlendirme tarihi `2026-11-16` olarak her puana kaydedilmiştir.
 
 ## Kurulum
 
@@ -63,7 +63,7 @@ npm run build
 npm run check
 ```
 
-Testler 59 kaydın benzersizliğini, dört kategorinin varlığını, tüm puanların 0–100 aralığını, kanıt alanlarının doluluğunu, rubrik ağırlıklarını ve altı eksenli grafik modelini doğrular.
+Testler 73 kaydın benzersizliğini, dört kategorinin varlığını, tüm puanların 0–100 aralığını, kanıt alanlarının doluluğunu, rubrik ağırlıklarını ve altı eksenli grafik modelini doğrular.
 
 ## Proje yapısı
 
@@ -74,7 +74,7 @@ src/
 ├── data/
 │   ├── rubric.ts            # Sabit puanlama rubriği
 │   ├── sources.ts           # Ortak güvenilir kaynak kataloğu
-│   ├── technologySeeds.ts   # 59 teknoloji için ham değerlendirmeler
+│   ├── technologySeeds.ts   # 73 teknoloji için ham değerlendirmeler
 │   ├── technologies.ts      # Gerekçe/kaynak/tarih/güven üretimi
 │   └── technologies.test.ts # Veri bütünlüğü testleri
 ├── utils/metrics.ts         # Grafik ve metrik erişim yardımcıları
